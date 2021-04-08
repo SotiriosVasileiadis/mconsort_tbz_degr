@@ -26,7 +26,7 @@ For obtaining all necessary material the users need to open a terminal, git-clon
 $ git clone https://github.com/SotiriosVasileiadis/mconsort_tbz_degr.git
 ```
 
-In the case of the computational methods, with the "mconsort_tbz_degr" folder as working directory, and assumming that the necessary software and R packages (described in the following sections) are installed, all code can be executed as described in this Readme.md file. The datasets necessary for performing all sequencing based analysis can be downloaded from the sources mentioned in the [Availability of data](#availability) section lised below.
+In the case of the computational methods, with the "mconsort_tbz_degr" folder as working directory, and assumming that the necessary software and R packages (described in the following sections) are installed, all code can be executed as described in this Readme.md file. The datasets necessary for performing all sequencing based analysis can be downloaded from the sources mentioned in the [Availability of data](#availability) section listed below. Also, some of the result files with suitable sizes are provided for reviewing purposes without having to clone and run the complete code.
 
 ### Table of contents<a name="toc"></a>
 
@@ -299,15 +299,10 @@ b) execute the [Aromadeg_search_plot_prep.r](1_metagenome/6_aromadeg_hits/Aromad
 
     - Prepares the Aromadeg hit bubble plots.
 
-*6) Prepare a comparative figure between MAGs concerning cobalamin biosynthesis*
+*7) Prepare a comparative figure between MAGs concerning cobalamin biosynthesis*
 
-a) execute the [run_diamond.sh](1_metagenome/z_accessory_files_dbs_and_executbles/cobalamin_biosynthesis/run_diamond.sh), which:
+    - execute the [run_diamond.sh](1_metagenome/z_accessory_files_dbs_and_executbles/cobalamin_biosynthesis/run_diamond.sh), which downloads the fully reviewed UniprotSwissprot and searches the metagenome sequences against it with diamond
 
-    - Performs a BLAST search of the translated ORF predictions of the metagenome.
-
-b) execute the [Aromadeg_search_plot_prep.r](1_metagenome/6_aromadeg_hits/Aromadeg_search_plot_prep.r), which:
-
-    - Prepares the Aromadeg hit bubble plots.
 
 
 **RNA sequencing and data analysis.<a name="rna"></a>** [↑](#toc) RNA sequencing was performed at an Illumina HiSeq2500 instrument with the Rapid SBS kit v2 chemistry for 250bp paired-end reads and the KAPA stranded RNA-Seq Library Preparation kit (KAPABiosystems, Wilmington, MA, USA) at the Genome Sequencing Center of the Brigham Young University (Provo, Utah, USA). Sequences were quality controlled as described for the metagenome sequencing and were mapped against the reference metagenome assembly sequence with STAR v020201 [49]. Transcript copy counts were predicted with HTSeq v 0.9.1 [50]. Data quality control, counts per million (CPM) reads transformation, the trimmed mean of M-values (TMM) normalization approach [51] and treatment/time wise differential expression tests were performed with the edgeR v3.14.0 package [52] of the R v3.6.3 software [4] using the negative binomial models and the generalized linear model quasi likelihood F-test [53]. Genes with less than 4 CPM in at least 2 samples were rejected from further analysis. Redundancy analysis (RDA) on the counts per million and Hellinger transformed matrix values was preferred for testing the sample-wide main experimental effects (treatment – succinate vs TBZ – and time) over canonical correspondence analysis as previously suggested [54]. The Hellinger transformation (square root of the relative abundances) [55] was performed and multivariate analyses were performed with vegan.
