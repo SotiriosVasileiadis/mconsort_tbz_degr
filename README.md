@@ -26,7 +26,7 @@ For obtaining all necessary material the users need to open a terminal, git-clon
 $ git clone https://github.com/SotiriosVasileiadis/mconsort_tbz_degr.git
 ```
 
-In the case of the computational methods, with the "mconsort_tbz_degr" folder as working directory, and assumming that the necessary software and R packages (described in the following sections) are installed, all code can be executed as described in this Readme.md file. The datasets necessary for performing all sequencing based analysis can be downloaded from the sources mentioned in the [Availability of data](#availability) section listed below. Also, some of the result files with suitable sizes are provided for reviewing purposes without having to clone and run the complete code.
+In the case of the computational methods, with the "mconsort_tbz_degr" folder as working directory, and assumming that the necessary software and R packages (described in the following sections) are installed, all code can be executed as described in this Readme.md file. The datasets necessary for performing all sequencing based analysis can be downloaded from the sources mentioned in the [Availability of data](#availability) section listed below. Also, some of the result files with suitable sizes are provided for reviewing purposes without having to clone and run the complete code; for keeping the file sizes low we had to compress some files and folders which might need expansion before use.
 
 ### Table of contents<a name="toc"></a>
 
@@ -55,6 +55,8 @@ In the case of the computational methods, with the "mconsort_tbz_degr" folder as
 [Availability of data](#availability)
 
 [References](#references)
+
+[Code Usage disclaimer](#disclaimer)
 
 
 **TBZ degradation assays.<a name="assays"></a>** [↑](#toc)
@@ -486,3 +488,7 @@ In parallel with the above database construction, the rule-based prediction of t
 85.	Umeda T, Katsuki J, Ashikawa Y, Usami Y, Inoue K, Noguchi H, et al. Crystallization and preliminary X-ray diffraction studies of a terminal oxygenase of carbazole 1,9a-dioxygenase from Novosphingobium sp. KA1. Acta Crystallographica Section F. 2010; 66:1480-3.
 86.	Parada AE, Needham DM, Fuhrman JA. Every base matters: assessing small subunit rRNA primers for marine microbiomes with mock communities, time series and global field samples. Environ Microbiol. 2016; 18:1403-14.
 87.	Apprill A, McNally S, Parsons R, Weber L. Minor revision to V4 region SSU rRNA 806R gene primer greatly increases detection of SAR11 bacterioplankton. Aquat Microb Ecol. 2015; 75:129-37.
+
+## Code Usage disclaimer<a name="disclaimer"></a>[↑](#toc)
+
+The following is the disclaimer that applies to all scripts, functions, one-liners, etc. This disclaimer supersedes any disclaimer included in any script, function, one-liner, etc.
