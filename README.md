@@ -26,7 +26,7 @@ For obtaining all necessary material and code the users need to open a terminal,
 $ git clone https://github.com/SotiriosVasileiadis/mconsort_tbz_degr.git
 ```
 
-In the case of the computational methods, with the "mconsort_tbz_degr" folder as working directory, and assuming that the necessary software and R packages (provided in the following sections) are installed, all code can be executed as described in this Readme.md file. The datasets necessary for performing all sequencing based analysis can be downloaded from the sources mentioned in the [Availability of data](#availability) section listed below. Also, some of the result files with suitable sizes are provided for reviewing purposes without having to clone and run the complete code; for keeping the file sizes low we had to compress some files and folders which might need expansion before use.
+In the case of the computational methods, with the "mconsort_tbz_degr" folder as working directory, and assuming that the necessary software and R packages (provided in the following sections) are installed, all code can be executed as described in this Readme.md file. The datasets necessary for performing all sequencing based analysis can be downloaded from the sources mentioned in the [Availability of data](#availability) section listed below. Also, some of the result files with suitable for the repository sizes are provided for reviewing purposes without having to clone and run the complete code; for keeping the file sizes low we had to compress some files and folders which might need expansion before use.
 
 ### Table of contents<a name="toc"></a>
 
