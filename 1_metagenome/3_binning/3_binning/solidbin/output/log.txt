@@ -1,0 +1,26 @@
+2021-01-22 23:20:50,915 - Input arguments:
+2021-01-22 23:20:50,916 - contig_file:	/input/contigs.fasta
+2021-01-22 23:20:50,916 - coverage_profiles:	/input/coverage_new.tsv
+2021-01-22 23:20:50,916 - composition_profiles:	/input/kmer_4_f500.csv
+2021-01-22 23:20:50,916 - output path:	/output/solidbin_out.txt
+2021-01-22 23:20:50,917 - priori_ml_list:	Not Available
+2021-01-22 23:20:50,917 - priori_cl_list:	Not Available
+2021-01-22 23:20:50,917 - clusters:	Auto
+2021-01-22 23:21:17,931 - Input arguments:
+2021-01-22 23:21:17,931 - contig_file:	input/contigs.fasta
+2021-01-22 23:21:17,931 - coverage_profiles:	input/coverage_new.tsv
+2021-01-22 23:21:17,932 - composition_profiles:	input/kmer_4_f500.csv
+2021-01-22 23:21:17,932 - output path:	output/solidbin_out.txt
+2021-01-22 23:21:17,933 - priori_ml_list:	Not Available
+2021-01-22 23:21:17,933 - priori_cl_list:	Not Available
+2021-01-22 23:21:17,933 - clusters:	Auto
+2021-01-22 23:21:18,716 - Start generating affinity matrix
+2021-01-22 23:21:39,854 - Finish generating affinity matrix
+2021-01-22 23:21:39,858 - estimate clusters:	19
+2021-01-22 23:21:39,859 - SolidBin mode:	naive
+2021-01-22 23:22:04,604 - Processing file:	input/contigs.fasta
+2021-01-22 23:22:04,778 - Reading Map:	output/solidbin_out.txt
+2021-01-22 23:22:04,783 - Writing bins:	output/ori_result
+2021-01-22 23:26:58,061 - Recluster the contigs from high_com_p_high_cont bins
+2021-01-22 23:26:58,061 - Recluster other contigs.
+2021-01-22 23:26:58,063 - Binning Finished

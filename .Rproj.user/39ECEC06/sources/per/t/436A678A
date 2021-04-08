@@ -1,0 +1,24 @@
+{
+    "id": "436A678A",
+    "path": "/mnt/21B044BE29552220/sotos/TBZ/mconsort_tbz_degr/2_metatranscriptome/5_data_analysis/metatranscriptome_analysis.r",
+    "project_path": "2_metatranscriptome/5_data_analysis/metatranscriptome_analysis.r",
+    "type": "r_source",
+    "hash": "3103996259",
+    "contents": "",
+    "dirty": false,
+    "created": 1615727825074.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "cursorPosition": "2340,34",
+        "scrollLine": "2334"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1615726561,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1615726561,
+    "read_only": false,
+    "read_only_alternatives": []
+}

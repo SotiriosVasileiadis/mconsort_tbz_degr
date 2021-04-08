@@ -1,0 +1,1 @@
+  Controlled exit resulting from an unrecoverable error or warning.

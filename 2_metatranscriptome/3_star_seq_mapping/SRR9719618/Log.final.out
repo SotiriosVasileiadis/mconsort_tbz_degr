@@ -1,0 +1,37 @@
+                                 Started job on |	Feb 02 10:52:52
+                             Started mapping on |	Feb 02 10:52:54
+                                    Finished on |	Feb 02 10:55:17
+       Mapping speed, Million of reads per hour |	121.69
+
+                          Number of input reads |	4833703
+                      Average input read length |	344
+                                    UNIQUE READS:
+                   Uniquely mapped reads number |	4321997
+                        Uniquely mapped reads % |	89.41%
+                          Average mapped length |	342.91
+                       Number of splices: Total |	42065
+            Number of splices: Annotated (sjdb) |	0
+                       Number of splices: GT/AG |	16099
+                       Number of splices: GC/AG |	23065
+                       Number of splices: AT/AC |	4
+               Number of splices: Non-canonical |	2897
+                      Mismatch rate per base, % |	0.32%
+                         Deletion rate per base |	0.01%
+                        Deletion average length |	1.41
+                        Insertion rate per base |	0.01%
+                       Insertion average length |	2.65
+                             MULTI-MAPPING READS:
+        Number of reads mapped to multiple loci |	26780
+             % of reads mapped to multiple loci |	0.55%
+        Number of reads mapped to too many loci |	49
+             % of reads mapped to too many loci |	0.00%
+                                  UNMAPPED READS:
+  Number of reads unmapped: too many mismatches |	0
+       % of reads unmapped: too many mismatches |	0.00%
+            Number of reads unmapped: too short |	478041
+                 % of reads unmapped: too short |	9.89%
+                Number of reads unmapped: other |	6836
+                     % of reads unmapped: other |	0.14%
+                                  CHIMERIC READS:
+                       Number of chimeric reads |	0
+                            % of chimeric reads |	0.00%

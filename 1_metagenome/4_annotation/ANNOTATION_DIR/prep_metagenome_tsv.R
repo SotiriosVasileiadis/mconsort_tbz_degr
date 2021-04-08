@@ -1,0 +1,13 @@
+library(rtracklayer)
+mygff <- readGFF("genome.gff")
+mygffdf <- data.frame(mygff)
+mygffdf$old_idx <- gsub(" .+","",gsub("OrthoSearch:UTh:","",unlist(lapply(mygffdf$note,`[[`,1))))
+mygffdf$new_idx <- as.numeric(row.names(mygffdf))
+mycds <- unlist(seqinr::read.fasta("cds.fna", as.string = TRUE))
+myrna <- unlist(seqinr::read.fasta("rna.fna", as.string = TRUE))
+myfna <- c(mycds,myrna)
+names(myfna) <- gsub("\\|.+","",names(myfna))
+myfnadf <- data.frame(myfna, row.names = names(myfna))
+mygffdf_fna <- merge(mygffdf, myfnadf, by.x = "ID", by.y = "row.names", all = T)
+mygffdf_fna <- mygffdf_fna[order(mygffdf_fna$new_idx),]
+write.table(mygffdf_fna, "metagenome.tsv", col.names = NA, sep = "\t", quote = F)

@@ -1,0 +1,13 @@
+[2021-01-22 23:22:07] INFO: CheckM v1.0.18
+[2021-01-22 23:22:07] INFO: checkm lineage_wf -x bin -t 45 output/ori_result output/checkm_out
+[2021-01-22 23:22:07] INFO: [CheckM - tree] Placing bins in reference genome tree.
+[2021-01-22 23:22:07] INFO: Identifying marker genes in 19 bins with 45 threads:
+[2021-01-22 23:26:54] INFO: Saving HMM info to file.
+[2021-01-22 23:26:54] INFO: Calculating genome statistics for 19 bins with 45 threads:
+[2021-01-22 23:26:54] INFO: Extracting marker genes to align.
+[2021-01-22 23:26:54] INFO: Parsing HMM hits to marker genes:
+[2021-01-22 23:26:56] INFO: Extracting 43 HMMs with 45 threads:
+[2021-01-22 23:26:56] INFO: Aligning 43 marker genes with 45 threads:
+[2021-01-22 23:26:57] ERROR:   [Error] Make sure pplacer is on your system path.
+
+  Controlled exit resulting from an unrecoverable error or warning.

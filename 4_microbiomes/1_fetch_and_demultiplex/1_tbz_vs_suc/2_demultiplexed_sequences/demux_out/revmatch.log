@@ -1,0 +1,691 @@
+
+               ________          __              
+              / ____/ /__  _  __/ /_  ____ ______
+             / /_  / / _ \| |/ / __ \/ __ `/ ___/
+            / __/ / /  __/>  </ /_/ / /_/ / /    
+           /_/   /_/\___/_/|_/_.___/\__._/_/     
+
+Flexbar - flexible barcode and adapter removal, version 3.5.0
+Developed with SeqAn, the library for sequence analysis
+
+Available on github.com/seqan/flexbar
+
+
+Local time:            Mon Mar 15 22:20:35 2021
+
+Number of threads:     32
+Bundled fragments:     256
+
+Target name:           revmatch
+File type:             fastq
+Reads file:            formatch_barcode_unassigned_2.fastq
+Reads file 2:          formatch_barcode_unassigned_1.fastq   (paired run)
+Barcode file:          my_bcfile_portionaa.fasta
+
+max-uncalled:          200
+min-read-length:       18
+
+barcode-trim-end:      LTAIL
+barcode-error-rate:    0
+barcode-match:         1
+barcode-mismatch:     -1
+barcode-gap:          -9
+
+Barcode:               Sequence:
+01_T1h0                TTCTTCTTCGTGTG
+02_T2h0                TTCTCAATGGTGTG
+03_T3h0                TTCAGTTCAGTGTG
+04_S1h0                TTCGAATCAGTGTG
+05_S2h0                TTGTCAGGTGTGTG
+06_S3h0                TTGAAGTTCGTGTG
+07_T1h12               TTCTTCAAGGTGTG
+08_T2h12               TTCTCAGAAGTGTG
+09_T3h12               TTCAGTAAGGTGTG
+10_S1h12               TTCGACAATGTGTG
+11_S2h12               TTGTCGATAGTGTG
+12_S3h12               TTGAAGGAAGTGTG
+13_T1h36               TTCTTGTCAGTGTG
+14_T2h36               TTCATATGGGTGTG
+15_T3h36               TTCAGACTTGTGTG
+16_S1h36               TTCGAGCACGTGTG
+17_S2h36               TTGTGTATCGTGTG
+18_S3h36               TTGACTATGGTGTG
+19_T1h54               TTCTTGAGTGTGTG
+20_T2h54               TTCATAGTCGTGTG
+21_T3h54               TTCAGAGGAGTGTG
+22_S1h54               TTGTTCAGAGTGTG
+23_S2h54               TTGTGTGAAGTGTG
+24_S3h54               TTGACGTGAGTGTG
+25_T1h66               TTCTTGGACGTGTG
+26_T2h66               TTCATCACAGTGTG
+27_T3h66               TTCAGCAGTGTGTG
+28_S1h66               TTGTTCGTTGTGTG
+29_S2h66               TTGTGACTAGTGTG
+30_S3h66               TTGACGAATGTGTG
+31_T1h78               TTCTATAGGGTGTG
+32_T2h78               TTCATCGATGTGTG
+33_T3h78               TTCAGCCAAGTGTG
+34_S1h78               TTGTTGTAGGTGTG
+35_S2h78               TTGTGCAATGTGTG
+36_S3h78               TTGAGTTGGGTGTG
+37_T1h90               TTCTATCTCGTGTG
+38_T2h90               TTCAATCGTGTGTG
+39_T3h90               TTCAGGTATGTGTG
+40_S1h90               TTGTATCGAGTGTG
+41_S2h90               TTGTGGTGTGTGTG
+42_S3h90               TTGAGTCATGTGTG
+43_T1h108              TTCTATGCAGTGTG
+44_T2h108              TTCAATGACGTGTG
+45_T3h108              TTCGTTCTAGTGTG
+46_S1h108              TTGTAATGGGTGTG
+47_S2h108              TTGATAGCAGTGTG
+48_S3h108              TTGAGAGTGGTGTG
+49_T1h120              TTCTAACAGGTGTG
+50_T2h120              TTCAACTAGGTGTG
+51_T3h120              TTCGTTGGTGTGTG
+52_S1h120              TTGTAAGTCGTGTG
+53_S2h120              TTGATCTTGGTGTG
+54_S3h120              TTGAGCCTCGTGTG
+55_T1h132              TTCTAGTTGGTGTG
+56_T2h132              TTCAACATCGTGTG
+57_T3h132              TTCGTAGAGGTGTG
+58_S1h132              TTGTAGAACGTGTG
+59_S2h132              TTGATCAACGTGTG
+60_S3h132              TTGAGGACAGTGTG
+61_T1h138              TTGCAACAAGTGTG
+62_T2h138              TTGCAGTATGTGTG
+63_T3h138              TTGCCTAGTGTGTG
+64_S1h138              TTGCCTCACGTGTG
+65_S2h138              TTGCCAATCGTGTG
+66_S3h138              TTGCCAGAGGTGTG
+67_T1h156              TTGGTTGTCGTGTG
+68_T2h156              TTGGTATGAGTGTG
+69_T3h156              TTGGTCTATGTGTG
+70_S1h156              TTGGTGCCAGTGTG
+71_S2h156              TTGGACGACGTGTG
+72_S3h156              TATATCAGGGTGTG
+73_T1h180              TATATCGTCGTGTG
+74_T2h180              TATATGCACGTGTG
+75_T3h180              TATAACGAGGTGTG
+76_S1h180              TATAAGTGGGTGTG
+77_S2h180              TATAAGCCAGTGTG
+78_S3h180              TATAGTCTCGTGTG
+
+
+Processing reads ...done.
+
+Elapsed time:       1 min 19 sec
+Processing speed:   36129 reads/s
+
+
+Output file statistics
+======================
+Read file:               revmatch_barcode_unassigned_1.fastq
+  written reads          0
+  short reads            0
+Read file 2:             revmatch_barcode_unassigned_2.fastq
+  written reads          0
+  short reads            0
+
+Read file:               revmatch_barcode_01_T1h0_1.fastq
+  written reads          19355
+  short reads            0
+Read file 2:             revmatch_barcode_01_T1h0_2.fastq
+  written reads          19355
+  short reads            0
+
+Read file:               revmatch_barcode_02_T2h0_1.fastq
+  written reads          20347
+  short reads            0
+Read file 2:             revmatch_barcode_02_T2h0_2.fastq
+  written reads          20347
+  short reads            0
+
+Read file:               revmatch_barcode_03_T3h0_1.fastq
+  written reads          21598
+  short reads            0
+Read file 2:             revmatch_barcode_03_T3h0_2.fastq
+  written reads          21598
+  short reads            0
+
+Read file:               revmatch_barcode_04_S1h0_1.fastq
+  written reads          21776
+  short reads            0
+Read file 2:             revmatch_barcode_04_S1h0_2.fastq
+  written reads          21776
+  short reads            0
+
+Read file:               revmatch_barcode_05_S2h0_1.fastq
+  written reads          19882
+  short reads            0
+Read file 2:             revmatch_barcode_05_S2h0_2.fastq
+  written reads          19882
+  short reads            0
+
+Read file:               revmatch_barcode_06_S3h0_1.fastq
+  written reads          21340
+  short reads            0
+Read file 2:             revmatch_barcode_06_S3h0_2.fastq
+  written reads          21340
+  short reads            0
+
+Read file:               revmatch_barcode_07_T1h12_1.fastq
+  written reads          17126
+  short reads            0
+Read file 2:             revmatch_barcode_07_T1h12_2.fastq
+  written reads          17126
+  short reads            0
+
+Read file:               revmatch_barcode_08_T2h12_1.fastq
+  written reads          19472
+  short reads            0
+Read file 2:             revmatch_barcode_08_T2h12_2.fastq
+  written reads          19472
+  short reads            0
+
+Read file:               revmatch_barcode_09_T3h12_1.fastq
+  written reads          18402
+  short reads            0
+Read file 2:             revmatch_barcode_09_T3h12_2.fastq
+  written reads          18402
+  short reads            0
+
+Read file:               revmatch_barcode_10_S1h12_1.fastq
+  written reads          21637
+  short reads            0
+Read file 2:             revmatch_barcode_10_S1h12_2.fastq
+  written reads          21637
+  short reads            0
+
+Read file:               revmatch_barcode_11_S2h12_1.fastq
+  written reads          21774
+  short reads            0
+Read file 2:             revmatch_barcode_11_S2h12_2.fastq
+  written reads          21774
+  short reads            0
+
+Read file:               revmatch_barcode_12_S3h12_1.fastq
+  written reads          22337
+  short reads            0
+Read file 2:             revmatch_barcode_12_S3h12_2.fastq
+  written reads          22337
+  short reads            0
+
+Read file:               revmatch_barcode_13_T1h36_1.fastq
+  written reads          20320
+  short reads            0
+Read file 2:             revmatch_barcode_13_T1h36_2.fastq
+  written reads          20320
+  short reads            0
+
+Read file:               revmatch_barcode_14_T2h36_1.fastq
+  written reads          16039
+  short reads            0
+Read file 2:             revmatch_barcode_14_T2h36_2.fastq
+  written reads          16039
+  short reads            0
+
+Read file:               revmatch_barcode_15_T3h36_1.fastq
+  written reads          23514
+  short reads            0
+Read file 2:             revmatch_barcode_15_T3h36_2.fastq
+  written reads          23514
+  short reads            0
+
+Read file:               revmatch_barcode_16_S1h36_1.fastq
+  written reads          23700
+  short reads            0
+Read file 2:             revmatch_barcode_16_S1h36_2.fastq
+  written reads          23700
+  short reads            0
+
+Read file:               revmatch_barcode_17_S2h36_1.fastq
+  written reads          20698
+  short reads            0
+Read file 2:             revmatch_barcode_17_S2h36_2.fastq
+  written reads          20698
+  short reads            0
+
+Read file:               revmatch_barcode_18_S3h36_1.fastq
+  written reads          22658
+  short reads            0
+Read file 2:             revmatch_barcode_18_S3h36_2.fastq
+  written reads          22658
+  short reads            0
+
+Read file:               revmatch_barcode_19_T1h54_1.fastq
+  written reads          22141
+  short reads            0
+Read file 2:             revmatch_barcode_19_T1h54_2.fastq
+  written reads          22141
+  short reads            0
+
+Read file:               revmatch_barcode_20_T2h54_1.fastq
+  written reads          21635
+  short reads            0
+Read file 2:             revmatch_barcode_20_T2h54_2.fastq
+  written reads          21635
+  short reads            0
+
+Read file:               revmatch_barcode_21_T3h54_1.fastq
+  written reads          21961
+  short reads            0
+Read file 2:             revmatch_barcode_21_T3h54_2.fastq
+  written reads          21961
+  short reads            0
+
+Read file:               revmatch_barcode_22_S1h54_1.fastq
+  written reads          12143
+  short reads            0
+Read file 2:             revmatch_barcode_22_S1h54_2.fastq
+  written reads          12143
+  short reads            0
+
+Read file:               revmatch_barcode_23_S2h54_1.fastq
+  written reads          20849
+  short reads            0
+Read file 2:             revmatch_barcode_23_S2h54_2.fastq
+  written reads          20849
+  short reads            0
+
+Read file:               revmatch_barcode_24_S3h54_1.fastq
+  written reads          12932
+  short reads            0
+Read file 2:             revmatch_barcode_24_S3h54_2.fastq
+  written reads          12932
+  short reads            0
+
+Read file:               revmatch_barcode_25_T1h66_1.fastq
+  written reads          20144
+  short reads            0
+Read file 2:             revmatch_barcode_25_T1h66_2.fastq
+  written reads          20144
+  short reads            0
+
+Read file:               revmatch_barcode_26_T2h66_1.fastq
+  written reads          22257
+  short reads            0
+Read file 2:             revmatch_barcode_26_T2h66_2.fastq
+  written reads          22257
+  short reads            0
+
+Read file:               revmatch_barcode_27_T3h66_1.fastq
+  written reads          3427
+  short reads            0
+Read file 2:             revmatch_barcode_27_T3h66_2.fastq
+  written reads          3427
+  short reads            0
+
+Read file:               revmatch_barcode_28_S1h66_1.fastq
+  written reads          23772
+  short reads            0
+Read file 2:             revmatch_barcode_28_S1h66_2.fastq
+  written reads          23772
+  short reads            0
+
+Read file:               revmatch_barcode_29_S2h66_1.fastq
+  written reads          22319
+  short reads            0
+Read file 2:             revmatch_barcode_29_S2h66_2.fastq
+  written reads          22319
+  short reads            0
+
+Read file:               revmatch_barcode_30_S3h66_1.fastq
+  written reads          6242
+  short reads            0
+Read file 2:             revmatch_barcode_30_S3h66_2.fastq
+  written reads          6242
+  short reads            0
+
+Read file:               revmatch_barcode_31_T1h78_1.fastq
+  written reads          20485
+  short reads            0
+Read file 2:             revmatch_barcode_31_T1h78_2.fastq
+  written reads          20485
+  short reads            0
+
+Read file:               revmatch_barcode_32_T2h78_1.fastq
+  written reads          24131
+  short reads            0
+Read file 2:             revmatch_barcode_32_T2h78_2.fastq
+  written reads          24131
+  short reads            0
+
+Read file:               revmatch_barcode_33_T3h78_1.fastq
+  written reads          24163
+  short reads            0
+Read file 2:             revmatch_barcode_33_T3h78_2.fastq
+  written reads          24163
+  short reads            0
+
+Read file:               revmatch_barcode_34_S1h78_1.fastq
+  written reads          23066
+  short reads            0
+Read file 2:             revmatch_barcode_34_S1h78_2.fastq
+  written reads          23066
+  short reads            0
+
+Read file:               revmatch_barcode_35_S2h78_1.fastq
+  written reads          17915
+  short reads            0
+Read file 2:             revmatch_barcode_35_S2h78_2.fastq
+  written reads          17915
+  short reads            0
+
+Read file:               revmatch_barcode_36_S3h78_1.fastq
+  written reads          14126
+  short reads            0
+Read file 2:             revmatch_barcode_36_S3h78_2.fastq
+  written reads          14126
+  short reads            0
+
+Read file:               revmatch_barcode_37_T1h90_1.fastq
+  written reads          18978
+  short reads            0
+Read file 2:             revmatch_barcode_37_T1h90_2.fastq
+  written reads          18978
+  short reads            0
+
+Read file:               revmatch_barcode_38_T2h90_1.fastq
+  written reads          22244
+  short reads            0
+Read file 2:             revmatch_barcode_38_T2h90_2.fastq
+  written reads          22244
+  short reads            0
+
+Read file:               revmatch_barcode_39_T3h90_1.fastq
+  written reads          21505
+  short reads            0
+Read file 2:             revmatch_barcode_39_T3h90_2.fastq
+  written reads          21505
+  short reads            0
+
+Read file:               revmatch_barcode_40_S1h90_1.fastq
+  written reads          23188
+  short reads            0
+Read file 2:             revmatch_barcode_40_S1h90_2.fastq
+  written reads          23188
+  short reads            0
+
+Read file:               revmatch_barcode_41_S2h90_1.fastq
+  written reads          10608
+  short reads            0
+Read file 2:             revmatch_barcode_41_S2h90_2.fastq
+  written reads          10608
+  short reads            0
+
+Read file:               revmatch_barcode_42_S3h90_1.fastq
+  written reads          12309
+  short reads            0
+Read file 2:             revmatch_barcode_42_S3h90_2.fastq
+  written reads          12309
+  short reads            0
+
+Read file:               revmatch_barcode_43_T1h108_1.fastq
+  written reads          21084
+  short reads            0
+Read file 2:             revmatch_barcode_43_T1h108_2.fastq
+  written reads          21084
+  short reads            0
+
+Read file:               revmatch_barcode_44_T2h108_1.fastq
+  written reads          22173
+  short reads            0
+Read file 2:             revmatch_barcode_44_T2h108_2.fastq
+  written reads          22173
+  short reads            0
+
+Read file:               revmatch_barcode_45_T3h108_1.fastq
+  written reads          22233
+  short reads            0
+Read file 2:             revmatch_barcode_45_T3h108_2.fastq
+  written reads          22233
+  short reads            0
+
+Read file:               revmatch_barcode_46_S1h108_1.fastq
+  written reads          22975
+  short reads            0
+Read file 2:             revmatch_barcode_46_S1h108_2.fastq
+  written reads          22975
+  short reads            0
+
+Read file:               revmatch_barcode_47_S2h108_1.fastq
+  written reads          23698
+  short reads            0
+Read file 2:             revmatch_barcode_47_S2h108_2.fastq
+  written reads          23698
+  short reads            0
+
+Read file:               revmatch_barcode_48_S3h108_1.fastq
+  written reads          4354
+  short reads            0
+Read file 2:             revmatch_barcode_48_S3h108_2.fastq
+  written reads          4354
+  short reads            0
+
+Read file:               revmatch_barcode_49_T1h120_1.fastq
+  written reads          19988
+  short reads            0
+Read file 2:             revmatch_barcode_49_T1h120_2.fastq
+  written reads          19988
+  short reads            0
+
+Read file:               revmatch_barcode_50_T2h120_1.fastq
+  written reads          24065
+  short reads            0
+Read file 2:             revmatch_barcode_50_T2h120_2.fastq
+  written reads          24065
+  short reads            0
+
+Read file:               revmatch_barcode_51_T3h120_1.fastq
+  written reads          24812
+  short reads            0
+Read file 2:             revmatch_barcode_51_T3h120_2.fastq
+  written reads          24812
+  short reads            0
+
+Read file:               revmatch_barcode_52_S1h120_1.fastq
+  written reads          25070
+  short reads            0
+Read file 2:             revmatch_barcode_52_S1h120_2.fastq
+  written reads          25070
+  short reads            0
+
+Read file:               revmatch_barcode_53_S2h120_1.fastq
+  written reads          23918
+  short reads            0
+Read file 2:             revmatch_barcode_53_S2h120_2.fastq
+  written reads          23918
+  short reads            0
+
+Read file:               revmatch_barcode_54_S3h120_1.fastq
+  written reads          14323
+  short reads            0
+Read file 2:             revmatch_barcode_54_S3h120_2.fastq
+  written reads          14323
+  short reads            0
+
+Read file:               revmatch_barcode_55_T1h132_1.fastq
+  written reads          20559
+  short reads            0
+Read file 2:             revmatch_barcode_55_T1h132_2.fastq
+  written reads          20559
+  short reads            0
+
+Read file:               revmatch_barcode_56_T2h132_1.fastq
+  written reads          23133
+  short reads            0
+Read file 2:             revmatch_barcode_56_T2h132_2.fastq
+  written reads          23133
+  short reads            0
+
+Read file:               revmatch_barcode_57_T3h132_1.fastq
+  written reads          21454
+  short reads            0
+Read file 2:             revmatch_barcode_57_T3h132_2.fastq
+  written reads          21454
+  short reads            0
+
+Read file:               revmatch_barcode_58_S1h132_1.fastq
+  written reads          24116
+  short reads            0
+Read file 2:             revmatch_barcode_58_S1h132_2.fastq
+  written reads          24116
+  short reads            0
+
+Read file:               revmatch_barcode_59_S2h132_1.fastq
+  written reads          25567
+  short reads            0
+Read file 2:             revmatch_barcode_59_S2h132_2.fastq
+  written reads          25567
+  short reads            0
+
+Read file:               revmatch_barcode_60_S3h132_1.fastq
+  written reads          6673
+  short reads            0
+Read file 2:             revmatch_barcode_60_S3h132_2.fastq
+  written reads          6673
+  short reads            0
+
+Read file:               revmatch_barcode_61_T1h138_1.fastq
+  written reads          10531
+  short reads            0
+Read file 2:             revmatch_barcode_61_T1h138_2.fastq
+  written reads          10531
+  short reads            0
+
+Read file:               revmatch_barcode_62_T2h138_1.fastq
+  written reads          12171
+  short reads            0
+Read file 2:             revmatch_barcode_62_T2h138_2.fastq
+  written reads          12171
+  short reads            0
+
+Read file:               revmatch_barcode_63_T3h138_1.fastq
+  written reads          11855
+  short reads            0
+Read file 2:             revmatch_barcode_63_T3h138_2.fastq
+  written reads          11855
+  short reads            0
+
+Read file:               revmatch_barcode_64_S1h138_1.fastq
+  written reads          13848
+  short reads            0
+Read file 2:             revmatch_barcode_64_S1h138_2.fastq
+  written reads          13848
+  short reads            0
+
+Read file:               revmatch_barcode_65_S2h138_1.fastq
+  written reads          3657
+  short reads            0
+Read file 2:             revmatch_barcode_65_S2h138_2.fastq
+  written reads          3657
+  short reads            0
+
+Read file:               revmatch_barcode_66_S3h138_1.fastq
+  written reads          14425
+  short reads            0
+Read file 2:             revmatch_barcode_66_S3h138_2.fastq
+  written reads          14425
+  short reads            0
+
+Read file:               revmatch_barcode_67_T1h156_1.fastq
+  written reads          12699
+  short reads            0
+Read file 2:             revmatch_barcode_67_T1h156_2.fastq
+  written reads          12699
+  short reads            0
+
+Read file:               revmatch_barcode_68_T2h156_1.fastq
+  written reads          10487
+  short reads            0
+Read file 2:             revmatch_barcode_68_T2h156_2.fastq
+  written reads          10487
+  short reads            0
+
+Read file:               revmatch_barcode_69_T3h156_1.fastq
+  written reads          12426
+  short reads            0
+Read file 2:             revmatch_barcode_69_T3h156_2.fastq
+  written reads          12426
+  short reads            0
+
+Read file:               revmatch_barcode_70_S1h156_1.fastq
+  written reads          14161
+  short reads            0
+Read file 2:             revmatch_barcode_70_S1h156_2.fastq
+  written reads          14161
+  short reads            0
+
+Read file:               revmatch_barcode_71_S2h156_1.fastq
+  written reads          14279
+  short reads            0
+Read file 2:             revmatch_barcode_71_S2h156_2.fastq
+  written reads          14279
+  short reads            0
+
+Read file:               revmatch_barcode_72_S3h156_1.fastq
+  written reads          14002
+  short reads            0
+Read file 2:             revmatch_barcode_72_S3h156_2.fastq
+  written reads          14002
+  short reads            0
+
+Read file:               revmatch_barcode_73_T1h180_1.fastq
+  written reads          13408
+  short reads            0
+Read file 2:             revmatch_barcode_73_T1h180_2.fastq
+  written reads          13408
+  short reads            0
+
+Read file:               revmatch_barcode_74_T2h180_1.fastq
+  written reads          13266
+  short reads            0
+Read file 2:             revmatch_barcode_74_T2h180_2.fastq
+  written reads          13266
+  short reads            0
+
+Read file:               revmatch_barcode_75_T3h180_1.fastq
+  written reads          13324
+  short reads            0
+Read file 2:             revmatch_barcode_75_T3h180_2.fastq
+  written reads          13324
+  short reads            0
+
+Read file:               revmatch_barcode_76_S1h180_1.fastq
+  written reads          29050
+  short reads            0
+Read file 2:             revmatch_barcode_76_S1h180_2.fastq
+  written reads          29050
+  short reads            0
+
+Read file:               revmatch_barcode_77_S2h180_1.fastq
+  written reads          14598
+  short reads            0
+Read file 2:             revmatch_barcode_77_S2h180_2.fastq
+  written reads          14598
+  short reads            0
+
+Read file:               revmatch_barcode_78_S3h180_1.fastq
+  written reads          14203
+  short reads            0
+Read file 2:             revmatch_barcode_78_S3h180_2.fastq
+  written reads          14203
+  short reads            0
+
+
+Filtering statistics
+====================
+Processed reads                   2854200
+  skipped due to uncalled bases         0
+  finally skipped short reads           0
+  skipped paired single reads           0
+Discarded reads overall                 0
+Remaining reads                   2854200   (100%)
+
+Processed bases   711321076
+Remaining bases   691341676   (97% of input)
+
+
+Flexbar completed barcode removal within reads.
+

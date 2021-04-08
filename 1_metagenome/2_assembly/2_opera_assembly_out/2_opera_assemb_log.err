@@ -1,0 +1,435 @@
+
+mkdir -p /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out/
+
+version	v0.9.0
+
+mkdir -p /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/user_assembly
+
+
+mkdir -p /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/read_mapping
+
+
+/home/sotosv/software/assembly/OPERA-MS//tools_opera_ms/perl /home/sotosv/software/assembly/OPERA-MS//OPERA-LG/bin//OPERA-long-read.pl --contig-file /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/user_assembly/contigs.fasta --kmer 60 --long-read-file /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/1_previous_datasets/long.fastq --output-prefix opera --output-directory /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/read_mapping --num-of-processors 56 --opera /home/sotosv/software/assembly/OPERA-MS//OPERA-LG/bin/ --illumina-read1 /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/2_trimmed_data/R1_paired.fastq.gz --illumina-read2 /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/2_trimmed_data/R2_paired.fastq.gz --samtools-dir /home/sotosv/software/assembly/OPERA-MS//tools_opera_ms/ --perl-dir /home/sotosv/software/assembly/OPERA-MS//tools_opera_ms/ --blasr /home/sotosv/software/assembly/OPERA-MS//tools_opera_ms/ --short-read-tooldir /home/sotosv/software/assembly/OPERA-MS//tools_opera_ms/ --skip-opera 1  --skip-short-read-mapping 1 > /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/read_mapping/OPERA-long-read.out  2> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/read_mapping/OPERA-long-read.err
+
+
+mkdir /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/coverage_estimation
+
+
+cp /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//opera-ms-utils.config /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/coverage_estimation/cov_estimate.config
+
+
+/home/sotosv/software/assembly/OPERA-MS//tools_opera_ms/perl /home/sotosv/software/assembly/OPERA-MS//bin/cov_estimate.pl /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/coverage_estimation/cov_estimate.config > /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/coverage_estimation/cov_estimate.out 2> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/coverage_estimation/cov_estimate.err
+
+
+/home/sotosv/software/assembly/OPERA-MS//tools_opera_ms/perl /home/sotosv/software/assembly/OPERA-MS/bin/filter_edge_coverage_ratio.pl /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/read_mapping /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/coverage_estimation/contigs_340_80 2> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/read_mapping/filter_edge_coverage_ratio.err
+
+
+mkdir -p /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/hierarchical_clustering
+
+
+mkdir /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/hierarchical_clustering/pairedEdges_i0
+
+
+ln -s /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/read_mapping/pairedEdges_i0 /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/hierarchical_clustering/pairedEdges_i0/pairedEdges_i0
+
+
+mkdir /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/hierarchical_clustering/pairedEdges_i1
+
+
+ln -s /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/read_mapping/pairedEdges_i1 /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/hierarchical_clustering/pairedEdges_i1/pairedEdges_i1
+
+
+mkdir /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/hierarchical_clustering/pairedEdges_i2
+
+
+ln -s /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/read_mapping/pairedEdges_i2 /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/hierarchical_clustering/pairedEdges_i2/pairedEdges_i2
+
+
+mkdir /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/hierarchical_clustering/pairedEdges_i3
+
+
+ln -s /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/read_mapping/pairedEdges_i3 /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/hierarchical_clustering/pairedEdges_i3/pairedEdges_i3
+
+
+mkdir /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/hierarchical_clustering/pairedEdges_i4
+
+
+ln -s /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/read_mapping/pairedEdges_i4 /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/hierarchical_clustering/pairedEdges_i4/pairedEdges_i4
+
+
+mkdir /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/hierarchical_clustering/pairedEdges_i5
+
+
+ln -s /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/read_mapping/pairedEdges_i5 /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/hierarchical_clustering/pairedEdges_i5/pairedEdges_i5
+
+
+/home/sotosv/software/assembly/OPERA-MS/bin/sigma /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/hierarchical_clustering/sigma.config > /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/hierarchical_clustering/sigma.out 2> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/hierarchical_clustering/sigma.err
+
+
+/home/sotosv/software/assembly/OPERA-MS//tools_opera_ms/perl /home/sotosv/software/assembly/OPERA-MS/bin/refine_r_estimate.pl /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/coverage_estimation/contigs_340_80 /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/hierarchical_clustering /home/sotosv/software/assembly/OPERA-MS//tools_opera_ms/ 56 6000000 /home/sotosv/software/assembly/OPERA-MS/ 2> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/hierarchical_clustering/refine_r.err
+
+
+mkdir -p /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/reference_clustering
+
+
+/home/sotosv/software/assembly/OPERA-MS//tools_opera_ms/perl /home/sotosv/software/assembly/OPERA-MS/bin/sequence_similarity_clustering.pl /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/reference_clustering /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/read_mapping /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/hierarchical_clustering /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/user_assembly/contigs.fasta 56 /home/sotosv/software/assembly/OPERA-MS//OPERA-MS-DB /home/sotosv/software/assembly/OPERA-MS/ /home/sotosv/software/assembly/OPERA-MS//tools_opera_ms/ /home/sotosv/software/assembly/OPERA-MS//tools_opera_ms//MUMmer3.23/ NULL 2> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/reference_clustering/sequence_similarity_clustering.err
+
+
+mkdir -p /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis
+
+
+/home/sotosv/software/assembly/OPERA-MS//tools_opera_ms/perl /home/sotosv/software/assembly/OPERA-MS/bin/coverage_clustering.pl /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/user_assembly/contigs.fasta /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/reference_clustering /home/sotosv/software/assembly/OPERA-MS//OPERA-MS-DB /home/sotosv/software/assembly/OPERA-MS/ /home/sotosv/software/assembly/OPERA-MS//tools_opera_ms/ 1  2>  /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/coverage_clustering.err
+
+
+cat /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/assembly.cmd | xargs -L 1 -P 56 -I COMMAND sh -c "COMMAND"
+*** ***  Clustering 20CM-2-65-7_sp003220985 Elapsed time: 0
+*** ***  Clustering 2-02-FULL-46-19_sp001795795 Elapsed time: 0
+*** ***  Clustering Afipia_sp001425835 Elapsed time: 0
+*** ***  Clustering 4572-55_sp002084765 Elapsed time: 0
+*** ***  Clustering Arthrobacter_I_sp900116495 Elapsed time: 1
+*** ***  Assembly 2-02-FULL-46-19_sp001795795 1, Elapsed time: 1
+*** ***  Clustering 12-FULL-67-14b_sp001768615 Elapsed time: 1
+*** ***  Clustering 1-14-0-20-47-16_sp002796325 Elapsed time: 1
+*** ***  Assembly Afipia_sp001425835 1, Elapsed time: 1
+*** ***  Assembly 4572-55_sp002084765 1, Elapsed time: 1
+*** ***  Assembly 20CM-2-65-7_sp003220985 1, Elapsed time: 1
+*** ***  Clustering Achromobacter_pulmonis Elapsed time: 1
+*** ***  Assembly Arthrobacter_I_sp900116495 1, Elapsed time: 0
+*** ***  Assembly 12-FULL-67-14b_sp001768615 1, Elapsed time: 0
+*** ***  Clustering Actinocatenispora_sera Elapsed time: 1
+*** ***  Clustering 2-02-FULL-66-22_sp001771285 Elapsed time: 1
+*** ***  Clustering 66-26_sp001897745 Elapsed time: 1
+*** ***  Assembly 1-14-0-20-47-16_sp002796325 1, Elapsed time: 0
+*** ***  Assembly 12-FULL-67-14b_sp001768615 2, Elapsed time: 0
+*** ***  Assembly 1-14-0-20-47-16_sp002796325 2, Elapsed time: 0
+*** ***  Clustering 40CM-68-15_sp003220615 Elapsed time: 1
+*** ***  Clustering 20CM-4-69-16_sp001919865 Elapsed time: 1
+*** ***  Assembly Actinocatenispora_sera 1, Elapsed time: 0
+*** ***  Assembly Achromobacter_pulmonis 1, Elapsed time: 0
+*** ***  Assembly Actinocatenispora_sera 2, Elapsed time: 0
+*** ***  Assembly 40CM-68-15_sp003220615 1, Elapsed time: 0
+*** ***  Assembly 2-02-FULL-66-22_sp001771285 1, Elapsed time: 0
+*** ***  Clustering 63-22_sp900465915 Elapsed time: 1
+*** ***  Assembly 40CM-68-15_sp003220615 2, Elapsed time: 0
+*** ***  Clustering 20CM-2-65-7_sp003221825 Elapsed time: 1
+*** ***  Assembly 63-22_sp900465915 1, Elapsed time: 0
+*** ***  Assembly 20CM-2-65-7_sp003221825 1, Elapsed time: 1
+*** ***  Assembly 40CM-68-15_sp003220615 3, Elapsed time: 1
+*** ***  Assembly 66-26_sp001897745 1, Elapsed time: 1
+*** ***  Assembly 63-22_sp900465915 2, Elapsed time: 1
+*** ***  Assembly 20CM-2-65-7_sp003221825 2, Elapsed time: 0
+*** ***  Assembly 20CM-4-69-16_sp001919865 1, Elapsed time: 1
+*** ***  Assembly 20CM-2-65-7_sp003221825 3, Elapsed time: 0
+*** ***  Assembly 63-22_sp900465915 3, Elapsed time: 0
+*** ***  Assembly 20CM-2-65-7_sp003221825 4, Elapsed time: 0
+*** ***  Assembly 63-22_sp900465915 4, Elapsed time: 0
+
+
+touch /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/done
+
+
+mkdir -p /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read
+
+
+cat /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/reference_clustering/single_strain_species.fa /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/*/excluded_contigs.fa > /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/reference_clustering/single_strain_species_with_excluded.fa
+
+
+/home/sotosv/software/assembly/OPERA-MS//tools_opera_ms/perl /home/sotosv/software/assembly/OPERA-MS/bin/filter_cluster_coverage.pl /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/coverage_estimation/contigs_340_80 /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/reference_clustering/clusters_single_strain /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/reference_clustering 1.5 /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/reference_clustering/NO_REPEAT 2> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/reference_clustering/filter_cluster_coverage.err
+ *** Filtering edge file
+
+ *** /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/read_mapping/config
+ *** /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/read_mapping/config
+ *** /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/read_mapping/config
+ *** /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/read_mapping/config
+ *** /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/read_mapping/config
+ *** /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/read_mapping/config
+
+timeout 5m /home/sotosv/software/assembly/OPERA-MS//OPERA-LG/bin//OPERA-LG /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/opera.config > /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/opera_lg.out 2> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/opera_lg.err
+
+
+mkdir -p /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/GAPFILLING
+
+
+mv /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds_single.scaf
+
+
+cp /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds_single.scaf /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf
+
+
+mv /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq_single.fasta
+
+
+cp /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq_single.fasta /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta
+
+
+mv /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs_single
+
+
+cp /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs_single /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs
+
+
+sed 's/>opera/>strain1_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/1-14-0-20-47-16_sp002796325/STRAIN_1//scaffolds.scaf >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf
+
+
+sed 's/>opera/>strain1_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/1-14-0-20-47-16_sp002796325/STRAIN_1//scaffoldSeq.fasta >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta
+
+
+grep -v Length /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/1-14-0-20-47-16_sp002796325/STRAIN_1//contigs >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs
+
+
+sed 's/>opera/>strain2_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/1-14-0-20-47-16_sp002796325/STRAIN_2//scaffolds.scaf >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf
+
+
+sed 's/>opera/>strain2_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/1-14-0-20-47-16_sp002796325/STRAIN_2//scaffoldSeq.fasta >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta
+
+
+grep -v Length /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/1-14-0-20-47-16_sp002796325/STRAIN_2//contigs >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs
+
+
+sed 's/>opera/>strain3_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/12-FULL-67-14b_sp001768615/STRAIN_1//scaffolds.scaf >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf
+
+
+sed 's/>opera/>strain3_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/12-FULL-67-14b_sp001768615/STRAIN_1//scaffoldSeq.fasta >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta
+
+
+grep -v Length /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/12-FULL-67-14b_sp001768615/STRAIN_1//contigs >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs
+
+
+sed 's/>opera/>strain4_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/12-FULL-67-14b_sp001768615/STRAIN_2//scaffolds.scaf >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf
+
+
+sed 's/>opera/>strain4_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/12-FULL-67-14b_sp001768615/STRAIN_2//scaffoldSeq.fasta >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta
+
+
+grep -v Length /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/12-FULL-67-14b_sp001768615/STRAIN_2//contigs >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs
+
+
+sed 's/>opera/>strain5_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/2-02-FULL-46-19_sp001795795/STRAIN_1//scaffolds.scaf >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf
+
+
+sed 's/>opera/>strain5_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/2-02-FULL-46-19_sp001795795/STRAIN_1//scaffoldSeq.fasta >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta
+
+
+grep -v Length /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/2-02-FULL-46-19_sp001795795/STRAIN_1//contigs >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs
+
+
+sed 's/>opera/>strain6_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/2-02-FULL-66-22_sp001771285/STRAIN_1//scaffolds.scaf >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf
+
+
+sed 's/>opera/>strain6_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/2-02-FULL-66-22_sp001771285/STRAIN_1//scaffoldSeq.fasta >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta
+
+
+grep -v Length /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/2-02-FULL-66-22_sp001771285/STRAIN_1//contigs >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs
+
+
+sed 's/>opera/>strain7_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/20CM-2-65-7_sp003220985/STRAIN_1//scaffolds.scaf >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf
+
+
+sed 's/>opera/>strain7_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/20CM-2-65-7_sp003220985/STRAIN_1//scaffoldSeq.fasta >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta
+
+
+grep -v Length /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/20CM-2-65-7_sp003220985/STRAIN_1//contigs >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs
+
+
+sed 's/>opera/>strain8_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/20CM-2-65-7_sp003221825/STRAIN_1//scaffolds.scaf >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf
+
+
+sed 's/>opera/>strain8_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/20CM-2-65-7_sp003221825/STRAIN_1//scaffoldSeq.fasta >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta
+
+
+grep -v Length /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/20CM-2-65-7_sp003221825/STRAIN_1//contigs >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs
+
+
+sed 's/>opera/>strain9_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/20CM-2-65-7_sp003221825/STRAIN_2//scaffolds.scaf >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf
+
+
+sed 's/>opera/>strain9_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/20CM-2-65-7_sp003221825/STRAIN_2//scaffoldSeq.fasta >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta
+
+
+grep -v Length /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/20CM-2-65-7_sp003221825/STRAIN_2//contigs >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs
+
+
+sed 's/>opera/>strain10_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/20CM-2-65-7_sp003221825/STRAIN_3//scaffolds.scaf >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf
+
+
+sed 's/>opera/>strain10_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/20CM-2-65-7_sp003221825/STRAIN_3//scaffoldSeq.fasta >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta
+
+
+grep -v Length /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/20CM-2-65-7_sp003221825/STRAIN_3//contigs >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs
+
+
+sed 's/>opera/>strain11_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/20CM-2-65-7_sp003221825/STRAIN_4//scaffolds.scaf >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf
+
+
+sed 's/>opera/>strain11_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/20CM-2-65-7_sp003221825/STRAIN_4//scaffoldSeq.fasta >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta
+
+
+grep -v Length /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/20CM-2-65-7_sp003221825/STRAIN_4//contigs >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs
+
+
+sed 's/>opera/>strain12_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/20CM-4-69-16_sp001919865/STRAIN_1//scaffolds.scaf >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf
+
+
+sed 's/>opera/>strain12_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/20CM-4-69-16_sp001919865/STRAIN_1//scaffoldSeq.fasta >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta
+
+
+grep -v Length /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/20CM-4-69-16_sp001919865/STRAIN_1//contigs >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs
+
+
+sed 's/>opera/>strain13_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/40CM-68-15_sp003220615/STRAIN_1//scaffolds.scaf >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf
+
+
+sed 's/>opera/>strain13_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/40CM-68-15_sp003220615/STRAIN_1//scaffoldSeq.fasta >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta
+
+
+grep -v Length /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/40CM-68-15_sp003220615/STRAIN_1//contigs >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs
+
+
+sed 's/>opera/>strain14_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/40CM-68-15_sp003220615/STRAIN_2//scaffolds.scaf >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf
+
+
+sed 's/>opera/>strain14_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/40CM-68-15_sp003220615/STRAIN_2//scaffoldSeq.fasta >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta
+
+
+grep -v Length /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/40CM-68-15_sp003220615/STRAIN_2//contigs >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs
+
+
+sed 's/>opera/>strain15_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/40CM-68-15_sp003220615/STRAIN_3//scaffolds.scaf >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf
+
+
+sed 's/>opera/>strain15_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/40CM-68-15_sp003220615/STRAIN_3//scaffoldSeq.fasta >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta
+
+
+grep -v Length /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/40CM-68-15_sp003220615/STRAIN_3//contigs >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs
+
+
+sed 's/>opera/>strain16_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/4572-55_sp002084765/STRAIN_1//scaffolds.scaf >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf
+
+
+sed 's/>opera/>strain16_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/4572-55_sp002084765/STRAIN_1//scaffoldSeq.fasta >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta
+
+
+grep -v Length /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/4572-55_sp002084765/STRAIN_1//contigs >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs
+
+
+sed 's/>opera/>strain17_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/63-22_sp900465915/STRAIN_1//scaffolds.scaf >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf
+
+
+sed 's/>opera/>strain17_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/63-22_sp900465915/STRAIN_1//scaffoldSeq.fasta >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta
+
+
+grep -v Length /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/63-22_sp900465915/STRAIN_1//contigs >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs
+
+
+sed 's/>opera/>strain18_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/63-22_sp900465915/STRAIN_2//scaffolds.scaf >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf
+
+
+sed 's/>opera/>strain18_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/63-22_sp900465915/STRAIN_2//scaffoldSeq.fasta >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta
+
+
+grep -v Length /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/63-22_sp900465915/STRAIN_2//contigs >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs
+
+
+sed 's/>opera/>strain19_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/63-22_sp900465915/STRAIN_3//scaffolds.scaf >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf
+
+
+sed 's/>opera/>strain19_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/63-22_sp900465915/STRAIN_3//scaffoldSeq.fasta >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta
+
+
+grep -v Length /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/63-22_sp900465915/STRAIN_3//contigs >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs
+
+
+sed 's/>opera/>strain20_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/63-22_sp900465915/STRAIN_4//scaffolds.scaf >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf
+
+
+sed 's/>opera/>strain20_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/63-22_sp900465915/STRAIN_4//scaffoldSeq.fasta >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta
+
+
+grep -v Length /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/63-22_sp900465915/STRAIN_4//contigs >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs
+
+
+sed 's/>opera/>strain21_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/66-26_sp001897745/STRAIN_1//scaffolds.scaf >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf
+
+
+sed 's/>opera/>strain21_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/66-26_sp001897745/STRAIN_1//scaffoldSeq.fasta >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta
+
+
+grep -v Length /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/66-26_sp001897745/STRAIN_1//contigs >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs
+
+
+sed 's/>opera/>strain22_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/Achromobacter_pulmonis/STRAIN_1//scaffolds.scaf >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf
+
+
+sed 's/>opera/>strain22_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/Achromobacter_pulmonis/STRAIN_1//scaffoldSeq.fasta >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta
+
+
+grep -v Length /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/Achromobacter_pulmonis/STRAIN_1//contigs >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs
+
+
+sed 's/>opera/>strain23_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/Actinocatenispora_sera/STRAIN_1//scaffolds.scaf >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf
+
+
+sed 's/>opera/>strain23_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/Actinocatenispora_sera/STRAIN_1//scaffoldSeq.fasta >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta
+
+
+grep -v Length /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/Actinocatenispora_sera/STRAIN_1//contigs >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs
+
+
+sed 's/>opera/>strain24_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/Actinocatenispora_sera/STRAIN_2//scaffolds.scaf >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf
+
+
+sed 's/>opera/>strain24_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/Actinocatenispora_sera/STRAIN_2//scaffoldSeq.fasta >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta
+
+
+grep -v Length /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/Actinocatenispora_sera/STRAIN_2//contigs >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs
+
+
+sed 's/>opera/>strain25_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/Afipia_sp001425835/STRAIN_1//scaffolds.scaf >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf
+
+
+sed 's/>opera/>strain25_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/Afipia_sp001425835/STRAIN_1//scaffoldSeq.fasta >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta
+
+
+grep -v Length /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/Afipia_sp001425835/STRAIN_1//contigs >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs
+
+
+sed 's/>opera/>strain26_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/Arthrobacter_I_sp900116495/STRAIN_1//scaffolds.scaf >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf
+
+
+sed 's/>opera/>strain26_opera/' /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/Arthrobacter_I_sp900116495/STRAIN_1//scaffoldSeq.fasta >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta
+
+
+grep -v Length /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis/Arthrobacter_I_sp900116495/STRAIN_1//contigs >> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/contigs
+
+
+ln -s /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta.filled
+
+
+/home/sotosv/software/assembly/OPERA-MS//tools_opera_ms//perl /home/sotosv/software/assembly/OPERA-MS//bin/generate_assembly_stats.pl /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffolds.scaf /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/reference_clustering/clusters_seq_similarity 251 /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/coverage_estimation/contigs_340_80 /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/read_mapping/opera.map.cov /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/reference_clustering/cluster_species.dat /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/strain_analysis /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/scaffoldSeq.fasta.filled /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//contig_info.txt /home/sotosv/software/assembly/OPERA-MS/ 56 /home/sotosv/software/assembly/OPERA-MS//tools_opera_ms//MUMmer3.23/ 2> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/opera_long_read/g_assembly_stats.err
+
+
+mkdir -p /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//opera_ms_clusters/all
+
+
+mv /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//opera_ms_clusters/all/NA.fasta /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//opera_ms_clusters/all/unclustered.fasta
+
+
+/home/sotosv/software/assembly/OPERA-MS//tools_opera_ms//mash dist -p 1 -d 0.2 /home/sotosv/software/assembly/OPERA-MS//OPERA-MS-DB/genomes.msh /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//opera_ms_clusters/all/*fa* > /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//opera_ms_clusters/all/mash.dist
+
+
+/home/sotosv/software/assembly/OPERA-MS//tools_opera_ms/perl /home/sotosv/software/assembly/OPERA-MS//bin/cluster_info.pl /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out/ /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//opera_ms_clusters/all > /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//opera_ms_clusters/all/../../cluster_info.txt
+ Analyze mash bin comparison from /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//opera_ms_clusters/all/mash.dist
+
+
+mkdir -p /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/polished_assembly
+
+
+ln -s /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//contigs.fasta /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/polished_assembly/contigs.fa
+
+
+/home/sotosv/software/assembly/OPERA-MS//tools_opera_ms//bwa index /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/polished_assembly/contigs.fa > /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/polished_assembly/bwa_index.out 2> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/polished_assembly/bwa_index.err
+
+
+/home/sotosv/software/assembly/OPERA-MS//tools_opera_ms//bwa mem -t 56 /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/polished_assembly/contigs.fa  /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/2_trimmed_data/R1_paired.fastq.gz /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/2_trimmed_data/R2_paired.fastq.gz 2>> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/polished_assembly/bwa.err| /home/sotosv/software/assembly/OPERA-MS//tools_opera_ms//samtools view -Sub - 2>> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/polished_assembly/bwa.err | /home/sotosv/software/assembly/OPERA-MS//tools_opera_ms//samtools sort - /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/polished_assembly/contigs.fa > /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/polished_assembly/bwa.out 2>> /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/polished_assembly/bwa.err
+
+Error in during bwa mapping. Please see /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/polished_assembly/bwa.out and /mnt/21B044BE29552220/sotos/TBZ/V2_clean_scripts/1_metagenome/3_opera_assembly_out//intermediate_files/polished_assembly/bwa.err for details.

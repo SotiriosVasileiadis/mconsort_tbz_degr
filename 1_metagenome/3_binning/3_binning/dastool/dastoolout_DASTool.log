@@ -1,0 +1,7 @@
+predicting genes using Prodigal V2.6.3: February, 2016
+identifying single copy genes using usearch v11.0.667_i86linux32
+calculating contig lengths.
+starting bin selection from 88 bins 
+writing unbinned contigs 
+bin selection complete: 18 bins above score threshold selected. 
+extracting bins to dastoolout_DASTool_bins

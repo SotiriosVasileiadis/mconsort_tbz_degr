@@ -1,0 +1,10 @@
+
+[Wed Jan 20 00:11:52 2021]	Assembly stats
+Number of contigs: 5398 
+Assembly size: 100370893 bp
+Max contig size: 1834129 bp
+Contig(s) longer than 1Mbp: 6 
+Contig(s) longer than 500kbp: 29
+Contig(s) longer than 100kbp: 207
+Contig N50: 214395 bp
+

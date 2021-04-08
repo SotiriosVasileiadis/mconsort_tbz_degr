@@ -141,7 +141,7 @@ do
    awk -F"\t" '{l[$1]=l[$1]+($2 *$3);r[$1]=$4} END {for (i in l){print i","(l[i]/r[i])}}' $i > cov_files/${stub}_cov.csv
 done
 
-# I used Collate.pl for combining the coverage files which I found in Solidbin
+# I used Collate.pl for combining the coverage files which is included in the Solidbin suit
 perl ../../../z_accessory_files_dbs_and_executbles/Collate.pl cov_files > coverage.tsv
 
 perl -pe "s/,/\t/g;" coverage.tsv > coverage_new.tsv
@@ -228,4 +228,8 @@ done
 
 # The loci of interest of the previous assembly version that previously showed high expression under the TBZ treatment were compared with this binning approach and all of them belonged in the groopm_bin_50 bin except for the two contig containing the two genes coding for AndAd and AndAa.
 # andAc that previously had the highest expression of the locus was classified in this bin. I therefore moved the contig containing the other two "and" locus genes here
-cd ../..
+cd ../../..
+
+# obtain the contig membership information and place it in the coverage file
+cd 3_binning/3_binning/dastool/dastoolout_DASTool_bins
+grep "^>" *.fa | perl -pe "s/ .+//" | perl -pe "s/\.fa:>/\t/g" > ../contig_membership.txt

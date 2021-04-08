@@ -1,0 +1,28 @@
+[[1]]
+
+Call:
+decorana(veg = data.frame(otu_table(ps_fin_ASV_prunned), check.names = F)) 
+
+Detrended correspondence analysis with 26 segments.
+Rescaling of axes with 4 iterations.
+
+                  DCA1    DCA2    DCA3     DCA4
+Eigenvalues     0.3069 0.07906 0.03994 0.037395
+Decorana values 0.3084 0.03914 0.01235 0.009869
+Axis lengths    2.0282 1.23277 0.93841 0.773275
+
+
+[[2]]
+
+Call:
+decorana(veg = decostand(data.frame(otu_table(ps_fin_ASV_prunned),      check.names = F), "hellinger")) 
+
+Detrended correspondence analysis with 26 segments.
+Rescaling of axes with 4 iterations.
+
+                  DCA1    DCA2     DCA3     DCA4
+Eigenvalues     0.1227 0.02730 0.015872 0.010902
+Decorana values 0.1239 0.01646 0.008144 0.006304
+Axis lengths    1.2600 0.78506 0.562353 0.445292
+
+

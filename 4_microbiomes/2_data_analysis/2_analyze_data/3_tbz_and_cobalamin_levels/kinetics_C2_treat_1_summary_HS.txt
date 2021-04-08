@@ -1,0 +1,97 @@
+mkin version used for fitting:    1.0.3 
+R version used for fitting:       3.6.3 
+Date of fit:     Sun Mar 28 22:39:50 2021 
+Date of summary: Sun Mar 28 22:39:50 2021 
+
+Equations:
+d_parent/dt = - ifelse(time <= tb, k1, k2) * parent
+
+Model predictions using solution type analytical 
+
+Fitted using 433 model solutions performed in 0.229 s
+
+Error model: Constant variance 
+
+Error model algorithm: OLS 
+
+Starting values for parameters to be optimised:
+            value   type
+parent_0 102.6059  state
+k1         0.1000 deparm
+k2         0.0100 deparm
+tb         5.0000 deparm
+
+Starting values for the transformed parameters actually optimised:
+              value lower upper
+parent_0 102.605870  -Inf   Inf
+log_k1    -2.302585  -Inf   Inf
+log_k2    -4.605170  -Inf   Inf
+log_tb     1.609438  -Inf   Inf
+
+Fixed parameter values:
+None
+
+Results:
+
+      AIC      BIC    logLik
+  120.254 125.4766 -55.12701
+
+Optimised, transformed parameters with symmetric confidence intervals:
+         Estimate Std. Error   Lower   Upper
+parent_0  105.900     1.6010 102.500 109.300
+log_k1     -5.155     0.1272  -5.425  -4.886
+log_k2     -1.260     0.1017  -1.475  -1.044
+log_tb      3.484        NaN     NaN     NaN
+sigma       3.341        NaN     NaN     NaN
+
+Parameter correlation:
+         parent_0  log_k1  log_k2 log_tb sigma
+parent_0   1.0000  0.7701 -0.2449    NaN   NaN
+log_k1     0.7701  1.0000 -0.8266    NaN   NaN
+log_k2    -0.2449 -0.8266  1.0000    NaN   NaN
+log_tb        NaN     NaN     NaN      1   NaN
+sigma         NaN     NaN     NaN    NaN     1
+
+Backtransformed parameters:
+Confidence intervals for internally transformed parameters are asymmetric.
+t-test (unrealistically) based on the assumption of normal distribution
+for estimators of untransformed parameters.
+          Estimate t value    Pr(>t)     Lower     Upper
+parent_0 1.059e+02  61.080 1.087e-20 1.025e+02 1.093e+02
+k1       5.768e-03   4.691 1.227e-04 4.404e-03 7.553e-03
+k2       2.837e-01   3.144 3.139e-03 2.287e-01 3.519e-01
+tb       3.258e+01  65.260 3.785e-21        NA        NA
+sigma    3.341e+00   6.473 3.847e-06       NaN       NaN
+
+FOCUS Chi2 error levels in percent:
+         err.min n.optim df
+All data   5.528       4  3
+parent     5.528       4  3
+
+Estimated disappearance times:
+        DT50  DT90 DT50back DT50_k1 DT50_k2
+parent 34.36 40.03    12.05   120.2   2.443
+
+Data:
+ time variable observed predicted  residual
+    0   parent 101.6446 1.059e+02 -4.298076
+    0   parent 105.2384 1.059e+02 -0.704221
+    0   parent 100.9346 1.059e+02 -5.008057
+   10   parent 104.9675 1.000e+02  4.962382
+   10   parent 105.1105 1.000e+02  5.105322
+   10   parent 109.3794 1.000e+02  9.374222
+   22   parent  88.8120 9.332e+01 -4.505790
+   22   parent  91.4185 9.332e+01 -1.899303
+   22   parent  90.2523 9.332e+01 -3.065446
+   34   parent  58.0408 5.863e+01 -0.591475
+   34   parent  59.5455 5.863e+01  0.913208
+   34   parent  58.3103 5.863e+01 -0.321912
+   46   parent   5.3317 1.948e+00  3.383316
+   46   parent   0.2985 1.948e+00 -1.649829
+   46   parent   0.2257 1.948e+00 -1.722663
+   58   parent   0.0100 6.474e-02 -0.054743
+   58   parent   0.0100 6.474e-02 -0.054743
+   58   parent   0.0100 6.474e-02 -0.054743
+   69   parent   0.0100 2.857e-03  0.007143
+   69   parent   0.0100 2.857e-03  0.007143
+   69   parent   0.0100 2.857e-03  0.007143

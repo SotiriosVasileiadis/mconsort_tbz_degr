@@ -1,0 +1,12 @@
+Permutation test for rda under reduced model
+Terms added sequentially (first to last)
+Permutation: free
+Number of permutations: 999
+
+Model: rda(formula = decostand(my_CanNorm_mat, "hellinger") ~ treatment + time, data = design_tab_sel)
+          Df Variance       F Pr(>F)    
+treatment  1 0.187805 83.3779  0.001 ***
+time       2 0.007265  1.6127  0.279    
+Residual  14 0.031534                   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

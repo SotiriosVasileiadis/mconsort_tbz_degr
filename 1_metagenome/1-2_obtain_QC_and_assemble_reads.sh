@@ -8,13 +8,24 @@ fastq-dump --split-files --gzip SRR7135609
 fastq-dump --split-files --gzip SRR7135610
 fastq-dump --split-files --gzip SRR7135611
 fastq-dump --split-files --gzip SRR7135612
+fastq-dump --split-files --gzip SRR14070200
+
+# run nonpareil on the data (unfortunately it is not possible to run the command in compressed files)
+for i in SRR7135606_1.fastq.gz SRR7135607_1.fastq.gz SRR7135608_1.fastq.gz SRR7135612_1.fastq.gz
+do
+	zcat ${i} > ${i%.*}
+	nonpareil -s ${i%.*} -T kmer -f fastq -b nonpareil_${i%.*}
+	rm ${i%.*}
+done
+
+Rscript nonpareil.r
+
 cd ..
 
 # combine all short reads and long reads with corresponding files
 cat 1_sequence_datasets/SRR7135606_1.fastq.gz 1_sequence_datasets/SRR7135607_1.fastq.gz 1_sequence_datasets/SRR7135608_1.fastq.gz 1_sequence_datasets/SRR7135612_1.fastq.gz > 1_sequence_datasets/short1.fastq.gz
 cat 1_sequence_datasets/SRR7135606_2.fastq.gz 1_sequence_datasets/SRR7135607_2.fastq.gz 1_sequence_datasets/SRR7135608_1.fastq.gz 1_sequence_datasets/SRR7135612_2.fastq.gz > 1_sequence_datasets/short2.fastq.gz
-zcat 1_sequence_datasets/SRR7135609_1.fastq.gz 1_sequence_datasets/SRR7135610_1.fastq.gz 1_sequence_datasets/SRR7135611_1.fastq.gz > 1_sequence_datasets/long.fastq
-cat 1_sequence_datasets/porechopped_nanofilt_fastq.fastq >> 1_sequence_datasets/long.fastq
+zcat 1_sequence_datasets/SRR7135609_1.fastq.gz 1_sequence_datasets/SRR7135610_1.fastq.gz 1_sequence_datasets/SRR7135611_1.fastq.gz SRR14070200_1.fastq.gz > 1_sequence_datasets/long.fastq
 
 # The assembly version at the contig names causes runtime issues and needs removing (with the piped perl oneliner)
 wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/006/513/095/GCA_006513095.1_ASM651309v1/GCA_006513095.1_ASM651309v1_genomic.fna.gz ; gunzip -c *.fna.gz | perl -pe "s/\.1 / /" > 1_sequence_datasets/prev_assemb.fna

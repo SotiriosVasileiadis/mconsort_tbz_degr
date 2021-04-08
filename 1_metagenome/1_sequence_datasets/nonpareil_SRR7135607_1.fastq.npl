@@ -1,0 +1,57 @@
+ [      0.1]  reading SRR7135607_1.fastq
+ [      0.1]  Picking 10000 random sequences
+ [      0.1]  Started counting
+ [     24.2]  Read file with 20967046 sequences
+ [     24.2]  Average read length is 248.294878bp
+ [     24.2]  Sub-sampling library
+ [     24.2]     Sampling at 0.000000%
+ [     24.3]     Sampling at 0.000007%
+ [     24.3]     Sampling at 0.000011%
+ [     24.4]     Sampling at 0.000015%
+ [     24.5]     Sampling at 0.000022%
+ [     24.5]     Sampling at 0.000031%
+ [     24.6]     Sampling at 0.000045%
+ [     24.7]     Sampling at 0.000064%
+ [     24.7]     Sampling at 0.000091%
+ [     24.7]     Sampling at 0.000130%
+ [     24.8]     Sampling at 0.000186%
+ [     24.9]     Sampling at 0.000265%
+ [     24.9]     Sampling at 0.000379%
+ [     25.0]     Sampling at 0.000541%
+ [     25.1]     Sampling at 0.000773%
+ [     25.2]     Sampling at 0.001104%
+ [     25.2]     Sampling at 0.001578%
+ [     25.3]     Sampling at 0.002254%
+ [     25.3]     Sampling at 0.003220%
+ [     25.4]     Sampling at 0.004600%
+ [     25.4]     Sampling at 0.006571%
+ [     25.5]     Sampling at 0.009387%
+ [     25.6]     Sampling at 0.013411%
+ [     25.7]     Sampling at 0.019158%
+ [     25.7]     Sampling at 0.027369%
+ [     25.8]     Sampling at 0.039098%
+ [     25.9]     Sampling at 0.055855%
+ [     25.9]     Sampling at 0.079792%
+ [     26.0]     Sampling at 0.113989%
+ [     26.1]     Sampling at 0.162841%
+ [     26.1]     Sampling at 0.232631%
+ [     26.2]     Sampling at 0.332329%
+ [     26.3]     Sampling at 0.474756%
+ [     26.4]     Sampling at 0.678223%
+ [     26.4]     Sampling at 0.968890%
+ [     26.5]     Sampling at 1.384129%
+ [     26.5]     Sampling at 1.977327%
+ [     26.6]     Sampling at 2.824752%
+ [     26.7]     Sampling at 4.035361%
+ [     26.8]     Sampling at 5.764801%
+ [     26.9]     Sampling at 8.235430%
+ [     27.0]     Sampling at 11.764900%
+ [     27.1]     Sampling at 16.807000%
+ [     27.2]     Sampling at 24.010000%
+ [     27.2]     Sampling at 34.300000%
+ [     27.4]     Sampling at 49.000000%
+ [     27.5]     Sampling at 70.000000%
+ [     27.6]     Sampling at 100.000000%
+ [     27.8]  Evaluating consistency
+ [     27.8]  WARNING: The curve reached near-saturation, hence coverage estimations could be unreliable
+ [     27.8]  To avoid saturation increase the -L parameter, currently set at 50.000000

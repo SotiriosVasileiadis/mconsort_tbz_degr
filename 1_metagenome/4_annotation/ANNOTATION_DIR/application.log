@@ -1,0 +1,208 @@
+2021/02/01 14:03:49 DFAST pipeline started. (version 1.2.10)
+2021/02/01 14:03:49 Results will be generated into 'ANNOTATION_DIR'.
+2021/02/01 14:03:49 Loading a genomic fasta file from contigs_binned.fasta
+2021/02/01 14:03:49 Genome source information: organism=Metagenome, strain=
+2021/02/01 14:03:50 The query genome is treated as a draft genome with 5398 sequences.
+2021/02/01 14:03:50 Sequences are sorted by length (from longer to shorter).
+2021/02/01 14:03:50 Sequences shorter than 500 will be eliminated.
+2021/02/01 14:03:53 Locus_tag settings: locus_tag_prefix=TBZ and step=10.
+2021/02/01 14:03:53 Locus_tags are assigned separately to each feature type. e.g. CDS: TBZ_000xx, rRNA: TBZ_r000xx, tRNA: TBZ_t000xx, tmRNA: TBZ_tm000xx, nc_rna: TBZ_nc000xx, misc_rna: TBZ_misc000xx.
+2021/02/01 14:03:53 Merge_CDS is enabled. CDSs predicted from different tools are merged.
+[WARNING] Merge_CDS is a preliminary version. Tools with a lower number have higher priotity.
+Priority: {'MGA': 0, 'Prodigal': 1}
+2021/02/01 14:03:53 Initializing structural annotation tools... 
+2021/02/01 14:03:53 GAPannotator initialized. (Version 1.0)
+2021/02/01 14:03:53 Setting GAPannotator options. {'len_cutoff': 5, 'linkage_evidence': 'paired-ends', 'gap_type': 'within scaffold'}
+2021/02/01 14:03:53 Checking MetaGeneAnnotator... 
+2021/02/01 14:03:53 MetaGeneAnnotator initialized. (Version 2008/08/19)
+2021/02/01 14:03:53 Setting MetaGeneAnnotator options. {'cmd_options': '-s'}
+2021/02/01 14:03:53 Checking Aragorn version... 
+2021/02/01 14:03:53 Aragorn initialized. (Version 1.2.38)
+2021/02/01 14:03:53 Setting Aragorn options. {'gcode': '-gcbact', 'cmd_options': '-l'}
+2021/02/01 14:03:53 Checking Barrnap version... 
+2021/02/01 14:03:53 Barrnap initialized. (Version 0.8)
+2021/02/01 14:03:53 Checking CRT version... 
+2021/02/01 14:03:53 CRT initialized. (Version 1.2)
+2021/02/01 14:03:53 Setting CRT options. {'jar_file': '/home/sotosv/software/annotation/dfast/dfast_core/bin/common/CRT1.2-CLI.jar', 'java_options': '', 'cmd_options': ''}
+2021/02/01 14:03:53 Checking Java version... 
+2021/02/01 14:03:53 Java initialized. (Version 11.0.9.1)
+2021/02/01 14:03:56 Initializing annotation components... 
+2021/02/01 14:03:56 OrthoSearch initialized.
+2021/02/01 14:03:56 Setting OrthoSearch options. {'skipAnnotatedFeatures': False, 'evalue_cutoff': 1e-06, 'qcov_cutoff': 75, 'scov_cutoff': 75, 'aligner': 'ghostx', 'aligner_options': {}, 'references': ['../z_accessory_files_dbs_and_executbles/final_bins_annotated_sel_l500_cv5_final.gbf']}
+2021/02/01 14:03:56 Checking GHOSTX version... 
+2021/02/01 14:03:56 GHOSTX initialized. (Version 1.3.6)
+2021/02/01 14:03:56 DBsearch initialized.
+2021/02/01 14:03:56 Setting DBsearch options. {'skipAnnotatedFeatures': True, 'evalue_cutoff': 1e-06, 'qcov_cutoff': 75, 'scov_cutoff': 75, 'aligner': 'ghostx', 'aligner_options': {}, 'database': '../z_accessory_files_dbs_and_executbles/AromadegDB/AromadegDfastDB.txt', 'db_name': 'AromadegDfastDB.txt'}
+2021/02/01 14:03:56 Reference DB loaded. 3605 sequences. [dbname=RefSeq_AromaDeg, version=1.0, contributor=Helmholtz]
+2021/02/01 14:03:56 DBsearch initialized.
+2021/02/01 14:03:56 Setting DBsearch options. {'skipAnnotatedFeatures': True, 'evalue_cutoff': 1e-06, 'qcov_cutoff': 75, 'scov_cutoff': 75, 'aligner': 'ghostx', 'aligner_options': {}, 'database': '/home/sotosv/software/annotation/dfast/dfast_core/db/protein/DFAST-default.ref'}
+2021/02/01 14:03:58 Reference DB loaded. 405077 sequences. [dbname=DFAST-default, version=1.1.5, contributor=yt, modified=20191106]
+2021/02/01 14:03:58 PseudoGeneDetection initialized.
+2021/02/01 14:03:58 Setting PseudoGeneDetection options. {'skipAnnotatedFeatures': False, 'extension': 300, 'scov_cutoff': 85}
+2021/02/01 14:03:58 Checking lastdb version... 
+2021/02/01 14:03:58 lastdb initialized. (Version 959)
+2021/02/01 14:03:58 Setting lastdb options. {'skipAnnotatedFeatures': False, 'extension': 300, 'scov_cutoff': 85}
+2021/02/01 14:03:58 Checking lastal version... 
+2021/02/01 14:03:58 lastal initialized. (Version 959)
+2021/02/01 14:03:58 Setting lastal options. {'skipAnnotatedFeatures': False, 'extension': 300, 'scov_cutoff': 85}
+2021/02/01 14:03:58 Checking Blastp version... 
+2021/02/01 14:03:58 Blastp initialized. (Version 2.6.0)
+2021/02/01 14:03:58 HMMscan initialized.
+2021/02/01 14:03:58 Setting HMMscan options. {'skipAnnotatedFeatures': True, 'evalue_cutoff': 1e-06, 'database': '/home/sotosv/software/annotation/dfast/dfast_core/db/hmm/TIGRFAMs_15.0_HMM.LIB', 'db_name': 'TIGR'}
+2021/02/01 14:03:58 Checking hmmscan version... 
+2021/02/01 14:03:58 hmmscan initialized. (Version 3.1b2)
+2021/02/01 14:03:58 Setting hmmscan options. {'skipAnnotatedFeatures': True, 'evalue_cutoff': 1e-06, 'database': '/home/sotosv/software/annotation/dfast/dfast_core/db/hmm/TIGRFAMs_15.0_HMM.LIB', 'db_name': 'TIGR'}
+2021/02/01 14:03:58 Start structural annotation process using 32 CPUs
+2021/02/01 14:06:13 1344 assembly_gap features were detected by GAPannotator.
+2021/02/01 14:06:48 97772 CDS features were detected by MetaGeneAnnotator.
+2021/02/01 14:06:49 Skipped an ambiguous 'tRNA-???'' at groopm_bin_36___opera_contig_5368:446507..446594(1).
+2021/02/01 14:06:49 Skipped 'tmRNA*' at groopm_bin_48___opera_contig_1:387147..387503(-1).
+2021/02/01 14:06:49 Skipped an ambiguous 'tRNA-???'' at groopm_bin_48___opera_contig_1:597724..597792(1).
+2021/02/01 14:06:49 Skipped 'tmRNA*' at groopm_bin_30___opera_contig_8:343522..343871(1).
+2021/02/01 14:06:49 Skipped 'tmRNA*' at solidbin_4270_sub___opera_contig_15:171573..171920(1).
+2021/02/01 14:06:49 Skipped 'tmRNA*' at maxbinout.010_sub___opera_contig_5342:274939..275281(-1).
+2021/02/01 14:06:49 Skipped 'tmRNA*' at groopm_bin_43___opera_contig_5385:246824..247172(1).
+2021/02/01 14:06:49 Skipped 'tmRNA*' at groopm_bin_50___opera_contig_59:47579..47916(1).
+2021/02/01 14:06:49 Skipped 'tmRNA*' at maxbinout.017___opera_contig_5351:85992..86332(1).
+2021/02/01 14:06:49 Skipped an ambiguous 'tRNA-???'' at groopm_bin_36___opera_contig_133:7378..7476(-1).
+2021/02/01 14:06:49 Skipped 'tmRNA*' at maxbinout.013_sub___opera_contig_183:53961..54295(-1).
+2021/02/01 14:06:49 Skipped an ambiguous 'tRNA-???'' at metabat_bin5___opera_contig_462:3015..3109(1).
+2021/02/01 14:06:49 Skipped 'tmRNA*' at metabat_bin5___opera_contig_745:2941..3276(1).
+2021/02/01 14:06:49 Skipped an ambiguous 'tRNA-???'' at unbinned___opera_contig_874:2045..2122(1).
+2021/02/01 14:06:49 988 tRNA features were detected by Aragorn.
+2021/02/01 14:06:50 45 rRNA features were detected by Barrnap.
+2021/02/01 14:06:50 29 CRISPR (later will be replaced by repeat_region) features were detected by CRT.
+2021/02/01 14:06:51 Merging CDS features from different prediction tools. Start with 97772 CDSs.
+2021/02/01 14:06:51 Merged CDS features. 97772 CDSs in total.
+2021/02/01 14:06:51 Start executing functional annotation components.
+2021/02/01 14:07:20 Format DB will be performed using 32 CPUs.
+2021/02/01 14:07:43 Format DB done 2/2.
+2021/02/01 14:07:44 Format DB done 1/2.
+2021/02/01 14:07:44 OrthoSearch will be performed using 32 CPUs.
+2021/02/01 14:29:00 OrthoSearch done 1/3.
+2021/02/01 14:33:16 OrthoSearch done 2/3.
+2021/02/01 15:02:35 OrthoSearch done 3/3.
+2021/02/01 15:03:05 DBsearch will be performed using 32 CPUs.
+2021/02/01 15:03:09 DBsearch done 1/32.
+2021/02/01 15:03:09 DBsearch done 3/32.
+2021/02/01 15:03:09 DBsearch done 5/32.
+2021/02/01 15:03:09 DBsearch done 2/32.
+2021/02/01 15:03:09 DBsearch done 7/32.
+2021/02/01 15:03:09 DBsearch done 6/32.
+2021/02/01 15:03:09 DBsearch done 10/32.
+2021/02/01 15:03:09 DBsearch done 4/32.
+2021/02/01 15:03:09 DBsearch done 9/32.
+2021/02/01 15:03:09 DBsearch done 13/32.
+2021/02/01 15:03:09 DBsearch done 17/32.
+2021/02/01 15:03:10 DBsearch done 16/32.
+2021/02/01 15:03:10 DBsearch done 15/32.
+2021/02/01 15:03:10 DBsearch done 8/32.
+2021/02/01 15:03:10 DBsearch done 14/32.
+2021/02/01 15:03:10 DBsearch done 12/32.
+2021/02/01 15:03:10 DBsearch done 18/32.
+2021/02/01 15:03:10 DBsearch done 21/32.
+2021/02/01 15:03:10 DBsearch done 20/32.
+2021/02/01 15:03:10 DBsearch done 22/32.
+2021/02/01 15:03:10 DBsearch done 19/32.
+2021/02/01 15:03:10 DBsearch done 11/32.
+2021/02/01 15:03:10 DBsearch done 29/32.
+2021/02/01 15:03:10 DBsearch done 32/32.
+2021/02/01 15:03:10 DBsearch done 31/32.
+2021/02/01 15:03:10 DBsearch done 24/32.
+2021/02/01 15:03:10 DBsearch done 30/32.
+2021/02/01 15:03:10 DBsearch done 25/32.
+2021/02/01 15:03:10 DBsearch done 27/32.
+2021/02/01 15:03:10 DBsearch done 23/32.
+2021/02/01 15:03:10 DBsearch done 26/32.
+2021/02/01 15:03:10 DBsearch done 28/32.
+2021/02/01 15:03:11 DBsearch will be performed using 32 CPUs.
+2021/02/01 15:03:39 DBsearch done 21/32.
+2021/02/01 15:03:39 DBsearch done 3/32.
+2021/02/01 15:03:39 DBsearch done 9/32.
+2021/02/01 15:03:39 DBsearch done 14/32.
+2021/02/01 15:03:40 DBsearch done 16/32.
+2021/02/01 15:03:40 DBsearch done 1/32.
+2021/02/01 15:03:40 DBsearch done 13/32.
+2021/02/01 15:03:40 DBsearch done 22/32.
+2021/02/01 15:03:40 DBsearch done 8/32.
+2021/02/01 15:03:40 DBsearch done 4/32.
+2021/02/01 15:03:41 DBsearch done 2/32.
+2021/02/01 15:03:41 DBsearch done 32/32.
+2021/02/01 15:03:41 DBsearch done 12/32.
+2021/02/01 15:03:41 DBsearch done 11/32.
+2021/02/01 15:03:41 DBsearch done 31/32.
+2021/02/01 15:03:41 DBsearch done 6/32.
+2021/02/01 15:03:41 DBsearch done 5/32.
+2021/02/01 15:03:41 DBsearch done 10/32.
+2021/02/01 15:03:41 DBsearch done 18/32.
+2021/02/01 15:03:41 DBsearch done 26/32.
+2021/02/01 15:03:41 DBsearch done 19/32.
+2021/02/01 15:03:41 DBsearch done 25/32.
+2021/02/01 15:03:42 DBsearch done 27/32.
+2021/02/01 15:03:42 DBsearch done 30/32.
+2021/02/01 15:03:42 DBsearch done 29/32.
+2021/02/01 15:03:42 DBsearch done 24/32.
+2021/02/01 15:03:42 DBsearch done 20/32.
+2021/02/01 15:03:42 DBsearch done 28/32.
+2021/02/01 15:03:42 DBsearch done 7/32.
+2021/02/01 15:03:43 DBsearch done 15/32.
+2021/02/01 15:03:43 DBsearch done 23/32.
+2021/02/01 15:03:44 DBsearch done 17/32.
+2021/02/01 15:03:50 Last format DB will be performed using 32 CPUs.
+2021/02/01 15:03:52 Last format DB done 1/1.
+2021/02/01 15:03:52 Last alignment will be performed using 32 CPUs.
+2021/02/01 15:05:31 Last alignment done 1/1.
+2021/02/01 15:07:06 177 CDS features were marked as possible pseudo due to internal stop codons.
+2021/02/01 15:07:06 342 CDS features were marked as possible pseudo due to frameshift.
+2021/02/01 15:07:06 Internal stop codons in the following 1 CDSs are translated to selenosysteine/pyrrolysine, which will be annotated with 'transl_except'. ['MGA_63091']
+2021/02/01 15:07:06 Removed 1 CDSs. ['MGA_63090']
+2021/02/01 15:07:08 HMMscan will be performed using 32 CPUs.
+2021/02/01 15:12:21 HMMscan done 15/32.
+2021/02/01 15:12:29 HMMscan done 21/32.
+2021/02/01 15:12:31 HMMscan done 12/32.
+2021/02/01 15:12:35 HMMscan done 10/32.
+2021/02/01 15:12:36 HMMscan done 23/32.
+2021/02/01 15:12:36 HMMscan done 20/32.
+2021/02/01 15:12:37 HMMscan done 14/32.
+2021/02/01 15:12:37 HMMscan done 19/32.
+2021/02/01 15:12:39 HMMscan done 13/32.
+2021/02/01 15:12:39 HMMscan done 11/32.
+2021/02/01 15:12:41 HMMscan done 8/32.
+2021/02/01 15:12:51 HMMscan done 22/32.
+2021/02/01 15:12:57 HMMscan done 31/32.
+2021/02/01 15:12:58 HMMscan done 2/32.
+2021/02/01 15:13:01 HMMscan done 25/32.
+2021/02/01 15:13:01 HMMscan done 16/32.
+2021/02/01 15:13:03 HMMscan done 6/32.
+2021/02/01 15:13:06 HMMscan done 4/32.
+2021/02/01 15:13:11 HMMscan done 5/32.
+2021/02/01 15:13:12 HMMscan done 18/32.
+2021/02/01 15:13:12 HMMscan done 17/32.
+2021/02/01 15:13:12 HMMscan done 24/32.
+2021/02/01 15:13:13 HMMscan done 7/32.
+2021/02/01 15:13:14 HMMscan done 3/32.
+2021/02/01 15:13:14 HMMscan done 30/32.
+2021/02/01 15:13:15 HMMscan done 28/32.
+2021/02/01 15:13:15 HMMscan done 1/32.
+2021/02/01 15:13:15 HMMscan done 26/32.
+2021/02/01 15:13:17 HMMscan done 27/32.
+2021/02/01 15:13:17 HMMscan done 9/32.
+2021/02/01 15:13:17 HMMscan done 32/32.
+2021/02/01 15:13:17 HMMscan done 29/32.
+2021/02/01 15:13:17 Collecting HMMscan results.
+2021/02/01 15:13:18 Assigning locus_tags to CDS, rRNA, tRNA, tmRNA, nc_rna, misc_rna
+2021/02/01 15:13:45 Setting output verbosity level to 3.
+2021/02/01 15:13:47 Writing a genome fasta file to ANNOTATION_DIR/genome.fna
+2021/02/01 15:13:48 Writing a CDS fasta file to ANNOTATION_DIR/cds.fna
+2021/02/01 15:13:53 Writing a protein fasta file to ANNOTATION_DIR/protein.faa
+2021/02/01 15:13:54 Writing an RNA fasta file to ANNOTATION_DIR/rna.fna
+2021/02/01 15:14:00 Writing a GFF file to ANNOTATION_DIR/genome.gff
+2021/02/01 15:14:03 Writing a GenBank format file to ANNOTATION_DIR/genome.gbk
+2021/02/01 15:14:31 Writing an EMBL format file to ANNOTATION_DIR/genome.embl
+2021/02/01 15:15:05 Writing a DDBJ annotation file to ANNOTATION_DIR/ddbj/mss.ann
+2021/02/01 15:15:05 Writing a DDBJ sequence file to ANNOTATION_DIR/ddbj/mss.fasta
+2021/02/01 15:15:36 'center_name' is not specified. 'my_center' is used tentatively.
+2021/02/01 15:15:36 Writing a GenBank tbl file to ANNOTATION_DIR/genbank/genbank.tbl
+2021/02/01 15:15:36 Writing a GenBank fsa file to ANNOTATION_DIR/genbank/genbank.fsa
+2021/02/01 15:16:05 DFAST pipeline completed!
+2021/02/01 15:16:05 Total running time: 1h12m16s

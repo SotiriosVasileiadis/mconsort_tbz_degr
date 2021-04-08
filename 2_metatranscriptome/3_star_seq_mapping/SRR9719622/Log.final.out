@@ -1,0 +1,37 @@
+                                 Started job on |	Feb 02 11:23:14
+                             Started mapping on |	Feb 02 11:23:17
+                                    Finished on |	Feb 02 11:24:22
+       Mapping speed, Million of reads per hour |	196.31
+
+                          Number of input reads |	3544449
+                      Average input read length |	325
+                                    UNIQUE READS:
+                   Uniquely mapped reads number |	3377824
+                        Uniquely mapped reads % |	95.30%
+                          Average mapped length |	324.65
+                       Number of splices: Total |	34898
+            Number of splices: Annotated (sjdb) |	0
+                       Number of splices: GT/AG |	12700
+                       Number of splices: GC/AG |	19865
+                       Number of splices: AT/AC |	13
+               Number of splices: Non-canonical |	2320
+                      Mismatch rate per base, % |	0.23%
+                         Deletion rate per base |	0.00%
+                        Deletion average length |	1.48
+                        Insertion rate per base |	0.00%
+                       Insertion average length |	1.93
+                             MULTI-MAPPING READS:
+        Number of reads mapped to multiple loci |	20306
+             % of reads mapped to multiple loci |	0.57%
+        Number of reads mapped to too many loci |	54
+             % of reads mapped to too many loci |	0.00%
+                                  UNMAPPED READS:
+  Number of reads unmapped: too many mismatches |	0
+       % of reads unmapped: too many mismatches |	0.00%
+            Number of reads unmapped: too short |	144235
+                 % of reads unmapped: too short |	4.07%
+                Number of reads unmapped: other |	2030
+                     % of reads unmapped: other |	0.06%
+                                  CHIMERIC READS:
+                       Number of chimeric reads |	0
+                            % of chimeric reads |	0.00%

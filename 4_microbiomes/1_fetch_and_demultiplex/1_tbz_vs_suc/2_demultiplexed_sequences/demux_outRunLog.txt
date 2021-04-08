@@ -1,0 +1,32 @@
+found /mnt/21B044BE29552220/sotos/TBZ/mconsort_tbz_degr/3_microbiomes/1_tbz_vs_suc/2_demultiplexed_sequences/R1.fastq
+found /mnt/21B044BE29552220/sotos/TBZ/mconsort_tbz_degr/3_microbiomes/1_tbz_vs_suc/2_demultiplexed_sequences/R2.fastq
+found bcfile.txt
+the forward reads file seems to be an uncompressed fastq
+the reverse reads file seems to be an uncompressed fastq
+ 
+Δευ 15 Μαρ 2021 10:17:59 μμ EET : Starting with demultiplexing.
+ 
+ 
+Δευ 15 Μαρ 2021 10:20:35 μμ EET : Finished processing the pairs with the forward read containing the barcodes
+ 
+ 
+Δευ 15 Μαρ 2021 10:21:54 μμ EET : Finished processing the pairs with the reverse read containing the barcodes
+ 
+ 
+Δευ 15 Μαρ 2021 10:21:54 μμ EET : Finished demultiplexing... Preparing the NCBI submission-ready files
+ 
+ 
+Δευ 15 Μαρ 2021 10:27:08 μμ EET : Done with the NCBI submission-ready files... compressing unmatched.
+ 
+ 
+Δευ 15 Μαρ 2021 10:27:08 μμ EET : Preparing the analysis ready files (containning the indexed primer in the forward reads)
+ 
+ 
+Δευ 15 Μαρ 2021 10:27:53 μμ EET : Done with all tasks!!!
+ 
+ 
+Δευ 15 Μαρ 2021 10:27:53 μμ EET : Total runtime stats
+
+real	10m32,063s
+user	106m8,161s
+sys	3m59,938s

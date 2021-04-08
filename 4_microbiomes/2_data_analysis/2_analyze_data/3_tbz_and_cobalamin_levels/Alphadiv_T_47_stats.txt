@@ -1,0 +1,224 @@
+$Shannon
+$Shannon$shap
+
+	Shapiro-Wilk normality test
+
+data:  myaovmatrix[, mytestvar]
+W = 0.91071, p-value = 0.2487
+
+
+$Shannon$ANOVA
+            Df  Sum Sq   Mean Sq F value Pr(>F)  
+cobalamin    3 0.00430 0.0014333   7.838 0.0122 *
+Residuals    7 0.00128 0.0001829                 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$Shannon$`HSD test`
+$statistics
+       MSerror Df    Mean       CV
+  0.0001828697  7 2.72232 0.496743
+
+$parameters
+   test    name.t ntr StudentizedRange alpha
+  Tukey cobalamin   4         4.681276  0.05
+
+$means
+      Shannon         std r      Min      Max      Q25      Q50      Q75
+0    2.763462 0.001621226 2 2.762315 2.764608 2.762889 2.763462 2.764035
+0.01 2.718096 0.009938900 3 2.709658 2.729051 2.712618 2.715579 2.722315
+1    2.707735 0.020340732 3 2.685954 2.726237 2.698483 2.711013 2.718625
+100  2.713701 0.011234001 3 2.701974 2.724366 2.708369 2.714764 2.719565
+
+$comparison
+NULL
+
+$groups
+      Shannon groups
+0    2.763462      a
+0.01 2.718096      b
+100  2.713701      b
+1    2.707735      b
+
+attr(,"class")
+[1] "group"
+
+
+$`Inv. Simpson`
+$`Inv. Simpson`$shap
+
+	Shapiro-Wilk normality test
+
+data:  myaovmatrix[, mytestvar]
+W = 0.91914, p-value = 0.3116
+
+
+$`Inv. Simpson`$ANOVA
+            Df Sum Sq Mean Sq F value Pr(>F)  
+cobalamin    3  0.648 0.21601   5.306  0.032 *
+Residuals    7  0.285 0.04071                 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+$`Inv. Simpson`$`HSD test`
+$statistics
+     MSerror Df     Mean       CV
+  0.04071064  7 11.25809 1.792211
+
+$parameters
+   test    name.t ntr StudentizedRange alpha
+  Tukey cobalamin   4         4.681276  0.05
+
+$means
+     Inv. Simpson        std r      Min      Max      Q25      Q50      Q75
+0        11.76957 0.14176793 2 11.66933 11.86982 11.71945 11.76957 11.81970
+0.01     11.18306 0.27827933 3 10.94680 11.48981 11.02969 11.11258 11.30119
+1        11.10779 0.23426766 3 10.84190 11.28384 11.01977 11.19763 11.24074
+100      11.14243 0.01083666 3 11.13358 11.15452 11.13639 11.13920 11.14686
+
+$comparison
+NULL
+
+$groups
+     Inv. Simpson groups
+0        11.76957      a
+0.01     11.18306     ab
+100      11.14243      b
+1        11.10779      b
+
+attr(,"class")
+[1] "group"
+
+
+$`Fisher's α`
+$`Fisher's α`$shap
+
+	Shapiro-Wilk normality test
+
+data:  myaovmatrix[, mytestvar]
+W = 0.95531, p-value = 0.7121
+
+
+$`Fisher's α`$ANOVA
+            Df Sum Sq Mean Sq F value Pr(>F)
+cobalamin    3 0.3474  0.1158    1.08  0.417
+Residuals    7 0.7504  0.1072               
+
+$`Fisher's α`$`HSD test`
+$statistics
+    MSerror Df     Mean      CV
+  0.1072065  7 5.026119 6.51445
+
+$parameters
+   test    name.t ntr StudentizedRange alpha
+  Tukey cobalamin   4         4.681276  0.05
+
+$means
+     Fisher's α       std r      Min      Max      Q25      Q50      Q75
+0      5.382000 0.3217818 2 5.154466 5.609534 5.268233 5.382000 5.495767
+0.01   4.943194 0.3450729 3 4.672256 5.331684 4.748949 4.825642 5.078663
+1      4.869622 0.2519025 3 4.592857 5.085501 4.761682 4.930507 5.008004
+100    5.028288 0.3753942 3 4.693101 5.433911 4.825476 4.957851 5.195881
+
+$comparison
+NULL
+
+$groups
+     Fisher's α groups
+0      5.382000      a
+100    5.028288      a
+0.01   4.943194      a
+1      4.869622      a
+
+attr(,"class")
+[1] "group"
+
+
+$Observed
+$Observed$shap
+
+	Shapiro-Wilk normality test
+
+data:  myaovmatrix[, mytestvar]
+W = 0.9438, p-value = 0.5662
+
+
+$Observed$ANOVA
+            Df Sum Sq Mean Sq F value Pr(>F)
+cobalamin    3  24.67   8.222   0.881  0.496
+Residuals    7  65.33   9.333               
+
+$Observed$`HSD test`
+$statistics
+   MSerror Df Mean       CV
+  9.333333  7   43 7.104769
+
+$parameters
+   test    name.t ntr StudentizedRange alpha
+  Tukey cobalamin   4         4.681276  0.05
+
+$means
+     Observed      std r Min Max  Q25 Q50  Q75
+0    46.00000 2.828427 2  44  48 45.0  46 47.0
+0.01 42.33333 3.214550 3  40  46 40.5  41 43.5
+1    41.66667 2.309401 3  39  43 41.0  43 43.0
+100  43.00000 3.605551 3  40  47 41.0  42 44.5
+
+$comparison
+NULL
+
+$groups
+     Observed groups
+0    46.00000      a
+100  43.00000      a
+0.01 42.33333      a
+1    41.66667      a
+
+attr(,"class")
+[1] "group"
+
+
+$ACE
+$ACE$shap
+
+	Shapiro-Wilk normality test
+
+data:  myaovmatrix[, mytestvar]
+W = 0.9438, p-value = 0.5662
+
+
+$ACE$ANOVA
+            Df Sum Sq Mean Sq F value Pr(>F)
+cobalamin    3  24.67   8.222   0.881  0.496
+Residuals    7  65.33   9.333               
+
+$ACE$`HSD test`
+$statistics
+   MSerror Df Mean       CV
+  9.333333  7   43 7.104769
+
+$parameters
+   test    name.t ntr StudentizedRange alpha
+  Tukey cobalamin   4         4.681276  0.05
+
+$means
+          ACE      std r Min Max  Q25 Q50  Q75
+0    46.00000 2.828427 2  44  48 45.0  46 47.0
+0.01 42.33333 3.214550 3  40  46 40.5  41 43.5
+1    41.66667 2.309401 3  39  43 41.0  43 43.0
+100  43.00000 3.605551 3  40  47 41.0  42 44.5
+
+$comparison
+NULL
+
+$groups
+          ACE groups
+0    46.00000      a
+100  43.00000      a
+0.01 42.33333      a
+1    41.66667      a
+
+attr(,"class")
+[1] "group"
+
+
