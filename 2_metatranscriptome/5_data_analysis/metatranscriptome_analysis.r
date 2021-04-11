@@ -2353,3 +2353,132 @@ i <- 4
   dev.off()
   
   
+
+
+
+    
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  #### prepare the catechol degradation pathway genes expression plot ----
+  # this section exploits the files and scripts run in advance found in the 1_metagenome/z_accessory_files_dbs_and_executbles/cobalamin_biosynthesis folder that searches the manually curated UniProt SWISS-prot database... essentially I exploit the initial material of the previous section. Due to the fact that the need for this came late, I did not have the time to screen and change all necessary file-names to something more meaningful for catechol degradation.
+  myb12biohits <- read.table("../../1_metagenome/z_accessory_files_dbs_and_executbles/cobalamin_biosynthesis/uniprot_sprot.fasta.dmnd.m8_1e-10_qcov50", sep = "\t", stringsAsFactors = F, quote = "", comment.char = "")
+  
+  colnames(myb12biohits) <- c("qseqid_B12","stitle_B12","pident_B12","length_B12","mismatch_B12","gapopen_B12","qstart_B12","qend_B12","sstart_B12","send_B12","evalue_B12","bitscore_B12")
+  
+  # do some cleanup (I kept the original cobalamin associated cleanup in order to avoid extra work... the cat specific follows)
+  myb12biohits$ID <- gsub("\\|.+","",myb12biohits$qseqid_B12)
+  myb12biohits$gene_hits_B12 <- gsub(".+ cobS .+","",gsub(".+ cobO .+","cobO",gsub(".+ BtuF .+","BtuF",gsub(".+ CobB\\/CobQ-like.+","CobB",gsub(" PE=.+","",gsub(".+ GN=","",gsub(".+ GN= ","",myb12biohits$stitle))))))) 
+  myb12biohits$gene_hits_B12[grep("Uncharacterized protein",myb12biohits$gene_hits_B12)] <- NA
+  
+  myb12biohits$gene_hits_B12 <- gsub("pcaR","catR",gsub("cat[1,3]","catR",gsub("cat1 operon transcr.+","catR",gsub(".+Probable ","",gsub("catRI+","catR",gsub("pcaJ","catJ",gsub("pcaF","catF",gsub("pcaI","catI",gsub("pcaC","catC",gsub("pcaB","catB",gsub("catC[0-9]","catC",gsub("catB[0-9]","catB",gsub("catA[0-9]","catA",myb12biohits$gene_hits_B12))))))))))))) 
+  
+  
+  myb12biohits <- myb12biohits[complete.cases(myb12biohits$gene_hits_B12),]
+  
+  # prep the directory for storring the results
+  system("mkdir catechol_path_expr")
+  compl.tbl <- merge(my_cnt_annot_tab_wth_sts,myb12biohits, by = "ID", all = T)
+  # merge the old gene annotation and replace with the gene_hits_B12 only if there is no other annotation in place
+  compl.tbl$gene <- gsub("_[0-9]+$","",compl.tbl$gene)
+  compl.tbl$my_new_gene <- compl.tbl$gene
+  for(myrownum in 1:nrow(compl.tbl)){
+    if(is.na(compl.tbl$my_new_gene[myrownum])){
+      compl.tbl$my_new_gene[myrownum] <- compl.tbl$gene_hits_B12[myrownum]
+    }
+  }
+  design <- design_tab_sel
+  # set the names of the genes of interest
+  mygenes <- c("catD","catA","catC","catB","catR","catI","catJ","catF","catE")
+  
+  ## bubble plots
+  qcutoff <- 0.01
+  compl.tbl$my_new_gene <- gsub("catRI+","catR",compl.tbl$my_new_gene)
+  myannfrb120 <- compl.tbl[grep(paste(mygenes, sep = "", collapse = "|"), compl.tbl$my_new_gene),c(which(colnames(compl.tbl)%in%c("ID","my_new_gene","TBZ_vs_SUC_logFC","TBZ_vs_SUC_q.value","BinTaxID")),grep("\\.y",colnames(compl.tbl)))]
+  myannfrb120$genecps <- rep(1, nrow(myannfrb120))
+  myannfrb120$CPM.TBZ <- rowMeans(myannfrb120[,grep(paste(design$sampleName[which(design$treatment == "TBZ")], collapse = "|"),colnames(myannfrb120))])
+  myannfrb120$CPM.SUC <- rowMeans(myannfrb120[,grep(paste(design$sampleName[which(design$treatment == "SUC")], collapse = "|"),colnames(myannfrb120))])
+  myannfrb12b <- aggregate(myannfrb120[,"genecps"], by = list(myannfrb120$my_new_gene, myannfrb120$BinTaxID), sum, na.rm=T)
+  row.names(myannfrb12b) <- paste(myannfrb12b$Group.1,myannfrb12b$Group.2)
+  myannfrb12c <- aggregate(myannfrb120[,grep("TBZ_vs_SUC",colnames(myannfrb120))], by = list(myannfrb120$my_new_gene, myannfrb120$BinTaxID), mean, na.rm=T)
+  row.names(myannfrb12c) <- paste(myannfrb12c$Group.1,myannfrb12c$Group.2)
+  
+  myannfrb12d <- merge(myannfrb12b, myannfrb12c, by = "row.names")
+  myannfrb12d$Group.1.x <- factor(myannfrb12d$Group.1.x, levels = mygenes[length(mygenes):1])
+  colnames(myannfrb12d)[2:4] <- c("gene","bin","genecnts")
+  myannfrb12d$clr <- "black"
+  myannfrb12d$clr[which(myannfrb12d$TBZ_vs_SUC_logFC < 0)] <- "red"
+  myannfrb12d$clr[which(myannfrb12d$TBZ_vs_SUC_logFC > 0)] <- "blue"
+  myannfrb12d$clr[which(myannfrb12d$TBZ_vs_SUC_q.value > qcutoff)] <- NA
+  
+  myannfrb12d$TBZ_vs_SUC_logFC <- abs(myannfrb12d$TBZ_vs_SUC_logFC)
+  
+  library(ggplot2)
+  library(ggtree)
+  
+  cairo_pdf(paste("catechol_path_expr/bubble_plotnopar_1e-10_qcov50_FDRcutof_",qcutoff,".pdf", sep = ""), width = 10, height = 5)
+  theme_set(theme_bw())
+  g1 <- ggplot(subset(myannfrb12d), aes(x=bin,y=gene)) +
+    geom_point(aes(size=`genecnts`, colour = I(clr))) + 
+    #theme_bw() + 
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) + 
+    labs(x = "bin", y = paste("gene ",sep = "")) +
+    ggtitle(paste("Gene counts"))
+  
+  g1$labels$size <- "gene cnts"
+  g1$data$clr[grep("groopm_bin_50_Sphingomonas",g1$data$bin)] <- "black"
+  g1$data$clr[-grep("groopm_bin_50_Sphingomonas",g1$data$bin)] <- "grey70"
+  
+  g2 <- ggplot(subset(myannfrb12d), aes(x=bin,y=gene)) +
+    geom_point(aes(size=`TBZ_vs_SUC_logFC`, colour = I(clr))) + 
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) + 
+    labs(x = "bin", y = paste("gene ",sep = "")) +
+    ggtitle(paste("TBZ/SUC gene expression"))
+  
+  g2$labels$size <- "log2FC"
+  g3 <- g2
+  for(mycolggplot in 1:length(g2$data$clr)){
+    if(is.na(g2$data$clr[mycolggplot])){
+      next
+    } else if(g2$data$clr[mycolggplot] == "blue" & g2$data$bin[mycolggplot] != "groopm_bin_50_Sphingomonas"){
+      g3$data$clr[mycolggplot] <- rgb(0, 0, 255, max = 255, alpha = 50)
+    } else if(g2$data$clr[mycolggplot] == "blue" & g2$data$bin[mycolggplot] %in% c("groopm_bin_50_Sphingomonas")){
+      g3$data$clr[mycolggplot] <- rgb(0, 0, 255, max = 255, alpha = 255)
+    } else if(g2$data$clr[mycolggplot] == "red" & g2$data$bin[mycolggplot] != "groopm_bin_50_Sphingomonas"){
+      g3$data$clr[mycolggplot] <- rgb(255, 0, 0, max = 255, alpha = 50)
+    } else if(g2$data$clr[mycolggplot] == "red" & g2$data$bin[mycolggplot] %in% c("groopm_bin_50_Sphingomonas")){
+      g3$data$clr[mycolggplot] <- rgb(255, 0, 0, max = 255, alpha = 255)
+    }
+  }
+  
+  multiplot(g1, g3, ncol=2)
+  
+  dev.off()
+  
+  
