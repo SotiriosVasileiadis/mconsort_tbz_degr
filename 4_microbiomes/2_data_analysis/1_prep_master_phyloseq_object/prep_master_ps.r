@@ -101,7 +101,7 @@ taxa <- assignTaxonomy(seqtab.nochim, minBoot = 80, "../../dbs/silva_nr99_v138.1
 
 
 library(phangorn)
-# library(DECIPHER)
+library(DECIPHER)
 
 seqs <- getSequences(seqtab.nochim)
 names(seqs) <- seqs # This propagates to the tip labels of the tree
@@ -178,7 +178,7 @@ mytxtbl_ammended <- data.frame(tax_table(ps0_best_tax), stringsAsFactors = F)
 mytxtbl_ammended$ASV_genus <- paste(row.names(mytxtbl_ammended), mytxtbl_ammended$Genus)
 
 # and rename the most dominant genus level taxa for consistency with the MAG annotations
-repl_names <- c("Sphingomonas","Sphingomonas","Novosphingobium","Sinobact._Hyrdocarboniphaga","Sinobact._Hyrdocarboniphaga","Bradyrhizobium","Bradyrhizobium","Novosphingobium","Hydrogenophaga","Hydrogenophaga","Thiobacillus","Thiobacillus","Sediminibacterium","Sediminibacterium","Shinella","Cupriavidus","Shinella","Hyphomicrobium","Cupriavidus","Hyphomicrobium","Sphingopyxis","Flavobacterium","Sphingopyxis","Microbacterium","Terrimonas","Microbacterium","Mesorhizobium","Pedobacter","Hydrogenophaga","Hydrogenophaga")
+repl_names <- c("Novosphingobium","Sinobacteraceae","Novosphingobium","Sphingomonas","Bradyrhizobium","Sinobacteraceae","Sphingomonas","Bradyrhizobium","Hydrogenophaga","Hydrogenophaga","Filimonas","Thiobacillus","Filimonas","Thiobacillus","Hyphomicrobium","Flavobacterium","Sphingopyxis","Shinella","Hyphomicrobium","Sphingopyxis","Pedobacter","Microbacterium","Shinella","Hydrogenophaga","Flavobacterium","Sphingopyxis","Pedobacter","Hydrogenophaga","Hydrogenophaga","Microbacterium")
 
 mytxtbl_ammended_fin <- mytxtbl_ammended
 for(i in 1:length(repl_names)){

@@ -23,8 +23,29 @@ text(0,0.1, labels = "0.1", pos = 2,offset = 2)
 dev.off()
 
 
+# prepare the plots ordered by relative abundance
+# plot mean relative abundances prior taxon prunning
+cairo_pdf("Barplot_of_rel_abund_ordered_by_RA.pdf", height = 5, width = 25)
+par(mar = c(14,5,4,4))
+barplot(100*colMeans(as.data.frame(otu_table(ps_fin_ASV_ra)))[order(colMeans(as.data.frame(otu_table(ps_fin_ASV_ra))),decreasing = T)], las =2, cex.names = 0.5, ylab = "% relative abundance")
+abline(h = 1, lty = 2)
+dev.off()
 
-#### prepare the plot ----
+cairo_pdf("Barplot_of_rel_abund_ordered_by_RA_ylog.pdf", height = 5, width = 25)
+par(mar = c(14,5,4,4))
+barplot(100*colMeans(as.data.frame(otu_table(ps_fin_ASV_ra)))[order(colMeans(as.data.frame(otu_table(ps_fin_ASV_ra))),decreasing = T)], log = "y", las =2, cex.names = 0.5, ylab = "% relative abundance")
+par(xpd = F)
+abline(h = 1, lty = 2)
+par(xpd = T)
+text(0,1, labels = "1", pos = 2,offset = 2)
+dev.off()
+
+
+
+
+
+
+#### prepare the stacked barplot ----
 ## prepare the tables to be used in plotting
 
 counts_bac16S <- data.frame(otu_table(ps_fin_ASV))

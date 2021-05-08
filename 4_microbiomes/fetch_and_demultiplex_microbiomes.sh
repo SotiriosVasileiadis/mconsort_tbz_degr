@@ -16,7 +16,7 @@
 #  
 #  Install the Edirect tools v14.2 according to the instructions of https://dataguide.nlm.nih.gov/edirect/install.html
 #  
-for MICROBIOME in 1_tbz_vs_suc 2_tbz13C_vs_tbz12C 3_tbz_and_cobalamin_levels_a 3_tbz_and_cobalamin_levels_b
+for MICROBIOME in 1_tbz_vs_suc 2_tbz13C_vs_tbz12C
 do
 	cd 1_fetch_and_demultiplex/${MICROBIOME}/1_raw_sequences
 	#  ```
