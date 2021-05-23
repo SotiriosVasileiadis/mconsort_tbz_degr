@@ -25,7 +25,7 @@ cd ..
 # combine all short reads and long reads with corresponding files
 cat 1_sequence_datasets/SRR7135606_1.fastq.gz 1_sequence_datasets/SRR7135607_1.fastq.gz 1_sequence_datasets/SRR7135608_1.fastq.gz 1_sequence_datasets/SRR7135612_1.fastq.gz > 1_sequence_datasets/short1.fastq.gz
 cat 1_sequence_datasets/SRR7135606_2.fastq.gz 1_sequence_datasets/SRR7135607_2.fastq.gz 1_sequence_datasets/SRR7135608_1.fastq.gz 1_sequence_datasets/SRR7135612_2.fastq.gz > 1_sequence_datasets/short2.fastq.gz
-zcat 1_sequence_datasets/SRR7135609_1.fastq.gz 1_sequence_datasets/SRR7135610_1.fastq.gz 1_sequence_datasets/SRR7135611_1.fastq.gz SRR14070200_1.fastq.gz > 1_sequence_datasets/long.fastq
+zcat 1_sequence_datasets/SRR7135609_1.fastq.gz 1_sequence_datasets/SRR7135610_1.fastq.gz 1_sequence_datasets/SRR7135611_1.fastq.gz 1_sequence_datasets/SRR14070200_1.fastq.gz > 1_sequence_datasets/long.fastq
 
 # The assembly version at the contig names causes runtime issues and needs removing (with the piped perl oneliner)
 wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/006/513/095/GCA_006513095.1_ASM651309v1/GCA_006513095.1_ASM651309v1_genomic.fna.gz ; gunzip -c *.fna.gz | perl -pe "s/\.1 / /" > 1_sequence_datasets/prev_assemb.fna

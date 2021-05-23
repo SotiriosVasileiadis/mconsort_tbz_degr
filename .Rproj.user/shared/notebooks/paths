@@ -1,7 +1,5 @@
 /mnt/21B044BE29552220/sotos/TBZ/mconsort_tbz_degr/.gitignore="A8473EE7"
 /mnt/21B044BE29552220/sotos/TBZ/mconsort_tbz_degr/1_metagenome/1-2_obtain_QC_and_assemble_reads.sh="B9F232A2"
 /mnt/21B044BE29552220/sotos/TBZ/mconsort_tbz_degr/1_metagenome/z_accessory_files_dbs_and_executbles/genes_of_interest_carb_cat.txt="79F90BC4"
-/mnt/21B044BE29552220/sotos/TBZ/mconsort_tbz_degr/2_metatranscriptome/5_data_analysis/edgeR.r="458D48BE"
 /mnt/21B044BE29552220/sotos/TBZ/mconsort_tbz_degr/2_metatranscriptome/5_data_analysis/input_files/design="5278352E"
 /mnt/21B044BE29552220/sotos/TBZ/mconsort_tbz_degr/2_metatranscriptome/5_data_analysis/metatranscriptome_analysis.r="13865798"
-/mnt/21B044BE29552220/sotos/TBZ/mconsort_tbz_degr/2_metatranscriptome/5_data_analysis/network/corrcutoff_0.5_relabund_cutoff_0.001/spearman/0_groopm_bin_50_Sphingomonas_sig_expr_gene_membership_BH_0.01_mingenes_100.txt="4E89DF34"
