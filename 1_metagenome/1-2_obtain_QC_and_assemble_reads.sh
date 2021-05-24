@@ -58,7 +58,7 @@ OPERA-MS.pl \
 	--contig-file ../1_sequence_datasets/prev_assemb.fna \
 	--short-read1 1_trimmed_data/R1_paired.fastq.gz \
 	--short-read2 1_trimmed_data/R2_paired.fastq.gz \
-	--long-read 1_sequence_datasets/long.fastq \
+	--long-read ../1_sequence_datasets/long.fastq \
 	--num-processors 56 \
 	--no-gap-filling \ --polishing \
 	--out-dir 2_opera_assembly_out 2> 2_opera_assemb_log.err
