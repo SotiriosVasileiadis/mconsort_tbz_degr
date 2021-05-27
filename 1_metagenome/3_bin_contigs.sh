@@ -190,6 +190,10 @@ cp ../../z_cov_file_prep/coverage_new.tsv ./
 cd ..
 
 ## run the solidbin
+# copy some necessary files which, for some reason, are seeked in an auxiliary folder next to the input dir
+cp -r /home/sotosv/software/binning/solidbin/SolidBin/auxiliary ./
+# run solidbin using the installed version at software (for some reason this worked the previous time)
+# at some point it requires checkm which can be found at the Solidbin miniconda environment (this solidbin version did not work with the rest software versions but it has checkm installed... alternatievly the right checkm installation should aslo work)
 python ~/software/binning/solidbin/SolidBin/SolidBin.py  --contig_file input/contigs.fasta --coverage_profiles input/coverage_new.tsv --composition_profiles input/kmer_4_f500.csv --output output/solidbin_out.txt --log output/log.txt
 
 cd output/ori_result
@@ -215,6 +219,8 @@ cd ..
 ### finally run the dastool refiner
 mkdir dastool
 
+cd dastool
+
 cp ../../2_read_mapping/contigs.fasta ./
 cp ../*/*_cntg_memb.txt ./
 DAS_Tool -i maxbin2_cntg_memb.txt,metabat2_cntg_memb.txt,groopm_cntg_memb.txt,solidbin_cntg_memb.txt -c contigs.fasta -o dastoolout -l maxbin2,metabat,groopm,solidbin -t 32 --write_bins 1 --write_unbinned 1
@@ -228,7 +234,7 @@ done
 
 # The loci of interest of the previous assembly version that previously showed high expression under the TBZ treatment were compared with this binning approach and all of them belonged in the groopm_bin_50 bin except for the two contig containing the two genes coding for AndAd and AndAa.
 # andAc that previously had the highest expression of the locus was classified in this bin. I therefore moved the contig containing the other two "and" locus genes here
-cd ../../..
+cd ../../../..
 
 # obtain the contig membership information and place it in the coverage file
 cd 3_binning/3_binning/dastool/dastoolout_DASTool_bins
