@@ -2,8 +2,11 @@ mkdir 4_annotation
 cd 4_annotation
 cp ../3_binning/3_binning/dastool/contigs_binned.fasta ./
 
+# extract the necessary reference files and folders
 gunzip ../z_accessory_files_dbs_and_executbles/final_bins_annotated_sel_l500_cv5_final.gbf.gz
+tar -C ../z_accessory_files_dbs_and_executbles -zxvf ../z_accessory_files_dbs_and_executbles/AromadegDB.tar.gz
 
+## run the DFAST annotation using the previous annotation as reference
 dfast -g contigs_binned.fasta \
 --database ../z_accessory_files_dbs_and_executbles/AromadegDB/AromadegDfastDB.txt \
 --references ../z_accessory_files_dbs_and_executbles/final_bins_annotated_sel_l500_cv5_final.gbf \
