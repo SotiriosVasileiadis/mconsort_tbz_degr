@@ -2,6 +2,8 @@ mkdir 4_annotation
 cd 4_annotation
 cp ../3_binning/3_binning/dastool/contigs_binned.fasta ./
 
+gunzip ../z_accessory_files_dbs_and_executbles/final_bins_annotated_sel_l500_cv5_final.gbf.gz
+
 dfast -g contigs_binned.fasta \
 --database ../z_accessory_files_dbs_and_executbles/AromadegDB/AromadegDfastDB.txt \
 --references ../z_accessory_files_dbs_and_executbles/final_bins_annotated_sel_l500_cv5_final.gbf \
