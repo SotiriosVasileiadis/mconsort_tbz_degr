@@ -1,7 +1,7 @@
 # ***Nutritional inter-dependencies and a carbazole-dioxygenase are key elements of a bacterial consortium relying on a Sphingomonas for the degradation of the fungicide thiabendazole***
-### By Sotirios Vasileiadis <sup>a</sup>, Chiara Perruchon <sup>a</sup>, Benjamin Scheer <sup>b</sup>, Lorenz Adrian <sup>b,d</sup>, Nicole Steinbach <sup>c</sup>, Marco Trevisan <sup>e</sup>, Patricia Plaza-Bolaños <sup>f</sup>, Ana Agüera <sup>f</sup>, Antonis Chatzinotas <sup>c</sup>, Dimitrios G Karpouzas *<sup>a</sup>
+### By Sotirios Vasileiadis *<sup>a</sup>, Chiara Perruchon <sup>a</sup>, Benjamin Scheer <sup>b</sup>, Lorenz Adrian <sup>b,d</sup>, Nicole Steinbach <sup>c</sup>, Marco Trevisan <sup>e</sup>, Patricia Plaza-Bolaños <sup>f</sup>, Ana Agüera <sup>f</sup>, Antonis Chatzinotas <sup>c</sup>, Dimitrios G Karpouzas *<sup>a</sup>
 
-### (\* corr. author)
+### (\* corr. authors)
 
 
 <sup>a</sup> Department of Biochemistry and Biotechnology, Laboratory of Plant and Environmental Biotechnology, University of Thessaly, Larissa, Viopolis 41500, Greece
