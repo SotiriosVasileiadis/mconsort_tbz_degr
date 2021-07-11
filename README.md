@@ -96,7 +96,7 @@ Sequencing was performed at the Genome sequencing center of the Brigham Young Un
 
 - [SRA toolkit v2.10.9](https://github.com/ncbi/sra-tools/wiki/02.-Installing-SRA-Toolkit)
 
-- Our own multiplexing method-specific demultiplexing script developed by Sotirios Vasileiadis [DemuxOwnBCsys_absPATH.sh](2_demultiplex_data/prok/DemuxOwnBCsys_absPATH.sh) (provided in the supplied material) using flexbar and a series of bash, AWK, and perl oneliners for preparing the demultiplexed files.
+- Our own multiplexing method-specific demultiplexing script developed by Sotirios Vasileiadis [DemuxOwnBCsys_absPATH.sh](4_microbiomes/1_fetch_and_demultiplex/1_tbz_vs_suc/2_demultiplexed_sequences) (provided in the supplied material) using flexbar and a series of bash, AWK, and perl oneliners for preparing the demultiplexed files.
 
 *R packages used:*
 
