@@ -132,6 +132,7 @@ opera_contig_243	groopm_bin_50
 opera_contig_259	groopm_bin_50
 opera_contig_290	groopm_bin_50
 opera_contig_312	groopm_bin_50
+opera_contig_395	groopm_bin_50
 opera_contig_45	groopm_bin_50
 opera_contig_5263	groopm_bin_50
 opera_contig_5265	groopm_bin_50
@@ -3911,7 +3912,6 @@ opera_contig_3946	unbinned
 opera_contig_3947	unbinned
 opera_contig_3948	unbinned
 opera_contig_3949	unbinned
-opera_contig_395	unbinned
 opera_contig_3950	unbinned
 opera_contig_3952	unbinned
 opera_contig_3953	unbinned
