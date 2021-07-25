@@ -85,10 +85,6 @@ mydesign<-data.frame(isotope = gsub("[0-9]h.+","",gsub("[0-9]+_","",sample_names
 # Calculate the ratios between the light and heavy fraction of the 13C-TBZ supplemented cultures. 
 final_mat_rat_calc <- final_mat[row.names(mydesign),][which(mydesign$isotope == "13C"),]
 mydesign_rat_calc <- mydesign[which(mydesign$isotope == "13C"),]
-# mydesign_rat_calc$time <- factor(mydesign_rat_calc$time, levels = c("h36","h72","h117","h141"))
-# final_mat_rat_calc_mean <- aggregate(final_mat_rat_calc, by = list(mydesign_rat_calc$fraction), FUN = mean)
-# # calculate the overall heavy to light ratio
-# rat_heavy <- final_mat_rat_calc_mean[which(final_mat_rat_calc_mean$Group.1 == "f5"),2:ncol(final_mat_rat_calc_mean)]/final_mat_rat_calc_mean[which(final_mat_rat_calc_mean$Group.1 == "f9"),2:ncol(final_mat_rat_calc_mean)]
 
 # calculate the 36h ratio
 mydesign_rat_calc36 <- mydesign[which(mydesign$isotope == "13C" & mydesign$time == "h36"),]
