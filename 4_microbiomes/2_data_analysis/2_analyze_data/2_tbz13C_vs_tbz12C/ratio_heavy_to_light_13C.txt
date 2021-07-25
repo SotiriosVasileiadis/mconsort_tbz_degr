@@ -1,0 +1,10 @@
+	RA_ratios_heavy_to_light
+Novosphingobium	0.144829045751839
+Sinobacteraceae	0.442790058339159
+Sphingomonas	8.34790480029374
+Bradyrhizobium	0.177352460454947
+Hydrogenophaga	0.896907417508501
+Filimonas	0.88327253007241
+Thiobacillus	0.252363410435889
+Hyphomicrobium	0.136696409812504
+≤ 5 % rel. ab.	0.880524730526626
