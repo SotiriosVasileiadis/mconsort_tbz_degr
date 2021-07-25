@@ -85,12 +85,37 @@ mydesign<-data.frame(isotope = gsub("[0-9]h.+","",gsub("[0-9]+_","",sample_names
 # Calculate the ratios between the light and heavy fraction of the 13C-TBZ supplemented cultures. 
 final_mat_rat_calc <- final_mat[row.names(mydesign),][which(mydesign$isotope == "13C"),]
 mydesign_rat_calc <- mydesign[which(mydesign$isotope == "13C"),]
-final_mat_rat_calc_mean <- aggregate(final_mat_rat_calc, by = list(mydesign_rat_calc$fraction), FUN = mean)
-rat_heavy <- final_mat_rat_calc_mean[which(final_mat_rat_calc_mean$Group.1 == "f5"),2:ncol(final_mat_rat_calc_mean)]/final_mat_rat_calc_mean[which(final_mat_rat_calc_mean$Group.1 == "f9"),2:ncol(final_mat_rat_calc_mean)]
-rat_heavy_tbl <- t(rat_heavy)
-colnames(rat_heavy_tbl) <- "RA_ratios_heavy_to_light"
+# mydesign_rat_calc$time <- factor(mydesign_rat_calc$time, levels = c("h36","h72","h117","h141"))
+# final_mat_rat_calc_mean <- aggregate(final_mat_rat_calc, by = list(mydesign_rat_calc$fraction), FUN = mean)
+# # calculate the overall heavy to light ratio
+# rat_heavy <- final_mat_rat_calc_mean[which(final_mat_rat_calc_mean$Group.1 == "f5"),2:ncol(final_mat_rat_calc_mean)]/final_mat_rat_calc_mean[which(final_mat_rat_calc_mean$Group.1 == "f9"),2:ncol(final_mat_rat_calc_mean)]
 
-write.table(rat_heavy_tbl, "ratio_heavy_to_light_13C.txt", sep = "\t", quote = F, col.names = NA)
+# calculate the 36h ratio
+mydesign_rat_calc36 <- mydesign[which(mydesign$isotope == "13C" & mydesign$time == "h36"),]
+final_mat_rat_calc_mean36 <- aggregate(final_mat_rat_calc[row.names(mydesign_rat_calc36),], by = list(mydesign_rat_calc36$fraction), FUN = mean)
+rat_heavy36 <- final_mat_rat_calc_mean36[which(final_mat_rat_calc_mean36$Group.1 == "f5"),2:ncol(final_mat_rat_calc_mean36)]/final_mat_rat_calc_mean36[which(final_mat_rat_calc_mean36$Group.1 == "f9"),2:ncol(final_mat_rat_calc_mean36)]
+
+# calculate the 72h ratio
+
+mydesign_rat_calc72 <- mydesign[which(mydesign$isotope == "13C" & mydesign$time == "h72"),]
+final_mat_rat_calc_mean72 <- aggregate(final_mat_rat_calc[row.names(mydesign_rat_calc72),], by = list(mydesign_rat_calc72$fraction), FUN = mean)
+rat_heavy72 <- final_mat_rat_calc_mean72[which(final_mat_rat_calc_mean72$Group.1 == "f5"),2:ncol(final_mat_rat_calc_mean72)]/final_mat_rat_calc_mean72[which(final_mat_rat_calc_mean72$Group.1 == "f9"),2:ncol(final_mat_rat_calc_mean72)]
+
+# calculate the 117h ratio
+
+mydesign_rat_calc117 <- mydesign[which(mydesign$isotope == "13C" & mydesign$time == "h117"),]
+final_mat_rat_calc_mean117 <- aggregate(final_mat_rat_calc[row.names(mydesign_rat_calc117),], by = list(mydesign_rat_calc117$fraction), FUN = mean)
+rat_heavy117 <- final_mat_rat_calc_mean117[which(final_mat_rat_calc_mean117$Group.1 == "f5"),2:ncol(final_mat_rat_calc_mean117)]/final_mat_rat_calc_mean117[which(final_mat_rat_calc_mean117$Group.1 == "f9"),2:ncol(final_mat_rat_calc_mean117)]
+
+# calculate the 141h ratio
+
+mydesign_rat_calc141 <- mydesign[which(mydesign$isotope == "13C" & mydesign$time == "h141"),]
+final_mat_rat_calc_mean141 <- aggregate(final_mat_rat_calc[row.names(mydesign_rat_calc141),], by = list(mydesign_rat_calc141$fraction), FUN = mean)
+rat_heavy141 <- final_mat_rat_calc_mean141[which(final_mat_rat_calc_mean141$Group.1 == "f5"),2:ncol(final_mat_rat_calc_mean141)]/final_mat_rat_calc_mean141[which(final_mat_rat_calc_mean141$Group.1 == "f9"),2:ncol(final_mat_rat_calc_mean141)]
+
+overall_mean_of_ratios <- data.frame("mean ratios"=colMeans(rbind(rat_heavy36,rat_heavy72,rat_heavy117,rat_heavy141)))
+
+write.table(overall_mean_of_ratios, "ratio_heavy_to_light_13C.txt", sep = "\t", quote = F, col.names = NA)
 
 #prepare the matrices
 mymat1 <- final_mat[row.names(mydesign[which(mydesign$isotope == "12C"),]),]
