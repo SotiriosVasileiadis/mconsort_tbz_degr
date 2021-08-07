@@ -135,3 +135,142 @@ graphics::legend("topleft",title = paste("treatment (R2 ",round(100*ef$factors$r
 
 dev.off()
 
+
+
+#### prepare the time series line plot for the main taxa using ratios of the relative abundances----
+# merge the Sphingomonads that seem to belong to the same strain
+ps_fin_ASV2 <- merge_taxa(ps_fin_ASV, eqtaxa = c("ASV004 Sphingomonas","ASV007 Sphingomonas"), archetype=1)
+ps_fin_ASV2 <- merge_taxa(ps_fin_ASV2, eqtaxa = c("ASV005 Bradyrhizobium","ASV008 Bradyrhizobium"), archetype=1)
+ps_fin_ASV2 <- merge_taxa(ps_fin_ASV2, eqtaxa = c("ASV017 Sphingopyxis","ASV020 Sphingopyxis"), archetype=1)
+
+### prepare the relative abundance table and remove low abundance ASVs
+ps_fin_ASV_ra_fr_prunning2  = transform_sample_counts(ps_fin_ASV2, function(x) 100 * x / sum(x))
+
+## proceed with the top 10 most abundant taxa
+top8ASV_names <- colnames(as.data.frame(otu_table(ps_fin_ASV_ra_fr_prunning2)))[1:8]
+
+ps_fin_ASV_prunned2 <- prune_taxa(top8ASV_names,ps_fin_ASV_ra_fr_prunning2)
+
+ps_fin_ASV_prunned3a <- subset_samples(ps_fin_ASV_prunned2, treatment == "TBZ")
+ps_fin_ASV_prunned3b <- subset_samples(ps_fin_ASV_prunned2, treatment == "SUC")
+
+# prepare the phyloseq object of the ratios TBZ/SUC
+ps_fin_ASV_prunned3 <- ps_fin_ASV_prunned2
+
+otu_table(ps_fin_ASV_prunned3) <- otu_table(as.matrix(as.matrix(otu_table(ps_fin_ASV_prunned3a))/as.matrix(otu_table(ps_fin_ASV_prunned3b))), taxa_are_rows = F)
+
+# create the merging variable treatment.time
+ps_fin_ASV_prunned4 <- ps_fin_ASV_prunned3
+sample_data(ps_fin_ASV_prunned4)$treat.time <- interaction(sample_data(ps_fin_ASV_prunned3)$treatment, sample_data(ps_fin_ASV_prunned3)$time)
+
+# merge the datasets and calculate the mean values
+# due to an inherent merge_samples command (used for averaging values according to the manual) issue it only outputs the sum in the current package version... a quick fix is found at https://github.com/joey711/phyloseq/issues/465
+merge_samples_mean <- function(physeq, group){
+  
+  group_sums <- as.matrix(table(sample_data(physeq)[ ,group]))[,1]
+  
+  merged <- merge_samples(physeq, group)
+  x <- as.matrix(otu_table(merged))
+  if(taxa_are_rows(merged)){ x<-t(x) }
+  out <- t(x/group_sums)
+  
+  out <- otu_table(out, taxa_are_rows = TRUE)
+  otu_table(merged) <- out
+  return(merged)
+}
+# calculate the means
+ps_fin_ASV_prunned5 <- merge_samples_mean(ps_fin_ASV_prunned4, "treat.time")
+
+# produce the 16S/ml normalized phyloseq
+ps_fin_ASV_prunned6 <- ps_fin_ASV_prunned5
+
+library(PerformanceAnalytics) # for the rainbowXequal
+library(RColorBrewer) # for the brewer.pal
+mycols <- c(rainbow10equal,brewer.pal(8, name="Dark2"))
+
+cairo_pdf("mean TBZ_to_SUC relative abundance ratio.pdf", height = 4, width = 6)
+par(mar = c(5,4,4,4) + 0.3)
+plot(sample_data(ps_fin_ASV_prunned6)$time,as.matrix(otu_table(ps_fin_ASV_prunned6))[1,], ylim = c(1,max(as.matrix(otu_table(ps_fin_ASV_prunned6)))), frame.plot = F, ylab = "mean TBZ/SUC relative abundance ratio", xlab = "hpi", type = "n")
+
+for(i in 1:nrow(as.matrix(otu_table(ps_fin_ASV_prunned6)))){
+  lines(sample_data(ps_fin_ASV_prunned6)$time,as.matrix(otu_table(ps_fin_ASV_prunned6))[i,],col = mycols[i], lwd = 2)
+}
+
+par(new = TRUE)
+
+plot(sample_data(ps_fin_ASV_prunned6)$time,sample_data(ps_fin_ASV_prunned6)$TBZ_port * 100,col = 1, lty = 2, axes = F, bty = "n", xlab = "", ylab = "", type = "l", lwd = 2)
+axis(side = 4, at = pretty(c(0,100)), lty = 2)
+mtext("TBZ (% of initial)", side = 4, line = 3)
+dev.off()
+
+
+
+
+#### prepare the time series line plot for the main taxa using ratios of the abundances----
+# merge the Sphingomonads that seem to belong to the same strain
+ps_fin_ASV2 <- merge_taxa(ps_fin_ASV, eqtaxa = c("ASV004 Sphingomonas","ASV007 Sphingomonas"), archetype=1)
+ps_fin_ASV2 <- merge_taxa(ps_fin_ASV2, eqtaxa = c("ASV005 Bradyrhizobium","ASV008 Bradyrhizobium"), archetype=1)
+ps_fin_ASV2 <- merge_taxa(ps_fin_ASV2, eqtaxa = c("ASV017 Sphingopyxis","ASV020 Sphingopyxis"), archetype=1)
+
+### prepare the relative abundance table and remove low abundance ASVs
+ps_fin_ASV_ra_fr_prunning2_pre  = transform_sample_counts(ps_fin_ASV2, function(x) 100 * x / sum(x))
+ps_fin_ASV_ra_fr_prunning2 <- ps_fin_ASV_ra_fr_prunning2_pre
+otu_table(ps_fin_ASV_ra_fr_prunning2) <- t(sample_data(ps_fin_ASV_ra_fr_prunning2_pre)$X16ScpsPerml*t(as.matrix(otu_table(ps_fin_ASV_ra_fr_prunning2_pre)))) # normalize to the 16S counts per ml
+
+## proceed with the top 8 most abundant taxa
+top8ASV_names <- colnames(as.data.frame(otu_table(ps_fin_ASV_ra_fr_prunning2)))[1:8]
+
+ps_fin_ASV_prunned2 <- prune_taxa(top8ASV_names,ps_fin_ASV_ra_fr_prunning2)
+
+ps_fin_ASV_prunned3a <- subset_samples(ps_fin_ASV_prunned2, treatment == "TBZ")
+ps_fin_ASV_prunned3b <- subset_samples(ps_fin_ASV_prunned2, treatment == "SUC")
+
+# prepare the phyloseq object of the ratios TBZ/SUC
+ps_fin_ASV_prunned3 <- ps_fin_ASV_prunned2
+
+otu_table(ps_fin_ASV_prunned3) <- otu_table(as.matrix(as.matrix(otu_table(ps_fin_ASV_prunned3a))/as.matrix(otu_table(ps_fin_ASV_prunned3b))), taxa_are_rows = F)
+
+# create the merging variable treatment.time
+ps_fin_ASV_prunned4 <- ps_fin_ASV_prunned3
+sample_data(ps_fin_ASV_prunned4)$treat.time <- interaction(sample_data(ps_fin_ASV_prunned3)$treatment, sample_data(ps_fin_ASV_prunned3)$time)
+
+# merge the datasets and calculate the mean values
+# due to an inherent merge_samples command (used for averaging values according to the manual) issue it only outputs the sum in the current package version... a quick fix is found at https://github.com/joey711/phyloseq/issues/465
+merge_samples_mean <- function(physeq, group){
+  
+  group_sums <- as.matrix(table(sample_data(physeq)[ ,group]))[,1]
+  
+  merged <- merge_samples(physeq, group)
+  x <- as.matrix(otu_table(merged))
+  if(taxa_are_rows(merged)){ x<-t(x) }
+  out <- t(x/group_sums)
+  
+  out <- otu_table(out, taxa_are_rows = TRUE)
+  otu_table(merged) <- out
+  return(merged)
+}
+# calculate the means
+ps_fin_ASV_prunned5 <- merge_samples_mean(ps_fin_ASV_prunned4, "treat.time")
+
+# produce the 16S/ml normalized phyloseq
+ps_fin_ASV_prunned6 <- ps_fin_ASV_prunned5
+# otu_table(ps_fin_ASV_prunned6) <- t(sample_data(ps_fin_ASV_prunned5)$X16ScpsPerml*t(as.matrix(otu_table(ps_fin_ASV_prunned5))))
+
+library(PerformanceAnalytics) # for the rainbowXequal
+library(RColorBrewer) # for the brewer.pal
+mycols <- c(rainbow10equal,brewer.pal(8, name="Dark2"))
+
+cairo_pdf("mean TBZ_to_SUC abundance ratio.pdf", height = 4, width = 6)
+par(mar = c(5,6,4,4) + 0.3)
+plot(sample_data(ps_fin_ASV_prunned6)$time,as.matrix(otu_table(ps_fin_ASV_prunned6))[1,], ylim = c(0.01,max(as.matrix(otu_table(ps_fin_ASV_prunned6)))), frame.plot = F, ylab = "mean TBZ/SUC\nabundance (RA x 16S rRNA cnts) ratio", xlab = "hpi", type = "n", log = "y")
+
+for(i in 1:nrow(as.matrix(otu_table(ps_fin_ASV_prunned6)))){
+  lines(sample_data(ps_fin_ASV_prunned6)$time,as.matrix(otu_table(ps_fin_ASV_prunned6))[i,],col = mycols[i], lwd = 2)
+}
+
+par(new = TRUE)
+
+plot(sample_data(ps_fin_ASV_prunned6)$time,sample_data(ps_fin_ASV_prunned6)$TBZ_port * 100,col = 1, lty = 2, axes = F, bty = "n", xlab = "", ylab = "", type = "l", lwd = 2)
+axis(side = 4, at = pretty(c(0,100)), lty = 2)
+mtext("TBZ (% of initial)", side = 4, line = 3)
+dev.off()
