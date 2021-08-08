@@ -188,9 +188,9 @@ library(PerformanceAnalytics) # for the rainbowXequal
 library(RColorBrewer) # for the brewer.pal
 mycols <- c(rainbow10equal,brewer.pal(8, name="Dark2"))
 
-cairo_pdf("mean TBZ_to_SUC relative abundance ratio.pdf", height = 4, width = 6)
-par(mar = c(5,4,4,4) + 0.3)
-plot(sample_data(ps_fin_ASV_prunned6)$time,as.matrix(otu_table(ps_fin_ASV_prunned6))[1,], ylim = c(1,max(as.matrix(otu_table(ps_fin_ASV_prunned6)))), frame.plot = F, ylab = "mean TBZ/SUC relative abundance ratio", xlab = "hpi", type = "n")
+cairo_pdf("mean TBZ_to_SUC relative abundance ratio.pdf", height = 4, width = 4.5)
+par(mar = c(5,5,4,4) + 0.3)
+plot(sample_data(ps_fin_ASV_prunned6)$time,as.matrix(otu_table(ps_fin_ASV_prunned6))[1,], ylim = c(1,max(as.matrix(otu_table(ps_fin_ASV_prunned6)))), frame.plot = F, ylab = "mean TBZ/SUC\nrelative abundance ratio", xlab = "hpi", type = "n")
 
 for(i in 1:nrow(as.matrix(otu_table(ps_fin_ASV_prunned6)))){
   lines(sample_data(ps_fin_ASV_prunned6)$time,as.matrix(otu_table(ps_fin_ASV_prunned6))[i,],col = mycols[i], lwd = 2)
