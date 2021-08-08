@@ -1,12 +1,12 @@
 # ***Nutritional inter-dependencies and a carbazole-dioxygenase are key elements of a bacterial consortium relying on a Sphingomonas for the degradation of the fungicide thiabendazole***
-### By Sotirios Vasileiadis *<sup>a</sup>, Chiara Perruchon <sup>a</sup>, Benjamin Scheer <sup>b</sup>, Lorenz Adrian <sup>b,d</sup>, Nicole Steinbach <sup>c</sup>, Marco Trevisan <sup>e</sup>, Patricia Plaza-Bolaños <sup>f</sup>, Ana Agüera <sup>f</sup>, Antonis Chatzinotas <sup>c</sup>, Dimitrios G Karpouzas *<sup>a</sup>
+### By Sotirios Vasileiadis *<sup>a</sup>, Chiara Perruchon <sup>a</sup>, Benjamin Scheer <sup>b</sup>, Lorenz Adrian <sup>b,d</sup>, Nicole Steinbach <sup>c</sup>, Marco Trevisan <sup>e</sup>, Patricia Plaza-Bolaños <sup>f</sup>, Ana Agüera <sup>f</sup>, Antonis Chatzinotas <sup>c,g,h</sup>, Dimitrios G Karpouzas *<sup>a</sup>
 
 ### (\* corr. authors)
 
 
 <sup>a</sup> Department of Biochemistry and Biotechnology, Laboratory of Plant and Environmental Biotechnology, University of Thessaly, Larissa, Viopolis 41500, Greece
 
-<sup>b</sup> Department of Isotope Biogeochemistry and c Department of Environmental Microbiology, Helmholtz Centre for Environmental Research – UFZ, Leipzig, Germany
+<sup>b</sup> Department of Environmental Biotechnology and c Department of Environmental Microbiology, Helmholtz Centre for Environmental Research – UFZ, Leipzig, Germany
 
 <sup>d</sup> Chair of Geobiotechnology, Technische Universität Berlin, Germany
 
@@ -14,6 +14,9 @@
 
 <sup>f</sup> Solar Energy Research Centre (CIESOL), Joint Center University of Almería-CIEMAT, Almeria, Spain
 
+<sup>g</sup> Institute of Biology, Leipzig University, 04103 Leipzig, Germany
+
+<sup>h</sup> German Centre for Integrative Biodiversity Research (iDiv) Halle-Jena-Leipzig, 04103 Leipzig, Germany
 
 
 ## Detailed Materials and Methods
