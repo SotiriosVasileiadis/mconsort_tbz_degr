@@ -145,7 +145,7 @@ for mybcfile in my_bcfile_portion*
  
 	## fish the pairs with the barcodes in the forward reads
 	
-	flexbar -r myinput1.fastq -p myinput2.fastq -t formatch -n ${5} -qf i1.8 -be LTAIL -bt 0 --max-uncalled 200 -b ${mybcfile}.fasta --barcode-unassigned
+	flexbar -r myinput1.fastq -p myinput2.fastq -t formatch -n ${5} -qf i1.8 -bt LTAIL -be 0 --max-uncalled 200 -b ${mybcfile}.fasta --barcode-unassigned
 	  #-t formatch/ -bk -bu -n ${5} -f i1.8 -be LEFT_TAIL -bt 0 \
 	echo " "
 	echo "$(date) : Finished processing the pairs with the forward read containing the barcodes"
